@@ -5,7 +5,7 @@
 # ─────────────────────────────────────────────────────────────
 backend:
   name: github
-  repo: OWNER/REPO          # ← remplacer par ton dépôt GitHub (ex: guada/rhyllow-site)
+  repo: charif97/rhyllow-site
   branch: main
 
 # Où sont uploadées les nouvelles photos/vidéos
