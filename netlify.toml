@@ -1,0 +1,14 @@
+# Configuration Netlify — site statique RHY
+[build]
+  publish = "."
+  command = ""
+
+# Cache long pour les médias (photos/vidéos), le HTML reste frais
+[[headers]]
+  for = "/photos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+[[headers]]
+  for = "/videos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
