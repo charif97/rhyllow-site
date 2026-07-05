@@ -89,7 +89,6 @@ header{position:fixed;top:0;inset-inline:0;z-index:120;display:flex;align-items:
 #gallery{max-width:1500px;margin:0 auto;padding:clamp(16px,4vw,40px)}
 #gallery.grid{position:static}
 #gallery.scatter{position:relative}
-/* shared card visuals */
 .media{position:relative;overflow:hidden;background:var(--card-bg);width:100%;height:100%}
 .media img,.media video{width:100%;height:100%;object-fit:cover;display:block;
   filter:grayscale(1) contrast(1.05);transition:filter .7s ease,transform 1.1s cubic-bezier(.22,1,.36,1);transform:scale(1.04)}
@@ -104,9 +103,7 @@ header{position:fixed;top:0;inset-inline:0;z-index:120;display:flex;align-items:
 .cap .seemore{margin-top:11px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#fff;
   display:inline-flex;gap:7px;align-self:flex-start;border-bottom:1px solid #fff;padding-bottom:3px;transition:gap .3s ease}
 .card:hover .cap .seemore,.shot:hover .cap .seemore{gap:12px}
-/* scatter card */
 .card{position:absolute;overflow:hidden;cursor:none}
-/* grid (masonry) */
 #gallery.grid{columns:1;column-gap:14px}
 @media(min-width:700px){#gallery.grid{columns:2}}
 @media(min-width:1100px){#gallery.grid{columns:3}}
@@ -142,9 +139,9 @@ footer{border-top:1px solid var(--line);padding:clamp(48px,9vw,110px) clamp(24px
 @media(min-width:800px){.fgrid{grid-template-columns:1fr 1fr}}
 .fgrid h2{font-family:var(--serif);font-weight:300;font-size:clamp(40px,7vw,86px);line-height:.95}
 .contacts{display:flex;flex-direction:column;gap:14px;margin-top:28px;font-size:14px}
-.contacts a{display:flex;gap:12px;align-items:center;color:var(--muted);cursor:none;transition:.3s}
+.contacts a,.contacts .ln{display:flex;gap:12px;align-items:center;color:var(--muted);cursor:none;transition:.3s}
 .contacts a:hover{color:var(--fg)}
-.contacts a b{color:var(--fg);font-weight:400}
+.contacts a b,.contacts .ln b{color:var(--fg);font-weight:400}
 .foot-meta{margin-top:60px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
 form.book{display:flex;flex-direction:column;gap:16px}
 form.book .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -221,7 +218,7 @@ form.book button:hover{opacity:.82}
   <div class="bgv"><video src="videos/hero.mp4" autoplay muted loop playsinline></video></div>
   <div class="grad"></div>
   <div class="hero-inner">
-    <p class="kicker" data-en="Dancer · Performer · Movement Artist — Madrid / Morocco" data-es="Bailarina · Intérprete · Artista del movimiento — Madrid / Marruecos">Dancer · Performer · Movement Artist — Madrid / Morocco</p>
+    <p class="kicker" id="kicker"></p>
     <h1>RHY<em>Guadalupe Sánchez</em></h1>
     <p class="scrollcue" data-en="Scroll to explore the work ↓" data-es="Desplázate para ver el trabajo ↓">Scroll to explore the work ↓</p>
   </div>
@@ -246,20 +243,16 @@ form.book button:hover{opacity:.82}
 
 <!-- ABOUT -->
 <section class="about">
-  <p class="lead" data-en="«Miro al miedo con coraje.»" data-es="«Miro al miedo con coraje.»">«Miro al miedo con coraje.»</p>
-  <p class="body" data-en="Guadalupe Sánchez — RHY — is a professional dancer moving between the luxury performance circuit of Morocco and the stages of Madrid. From dinner-show residencies in Marrakech and Rabat to music video, festival and live-club work, she brings cinematic physicality and a fearless presence across commercial, contemporary, floorwork and heels." data-es="Guadalupe Sánchez — RHY — es bailarina profesional que transita entre el circuito de espectáculo de lujo de Marruecos y los escenarios de Madrid. De residencias de cena-espectáculo en Marrakech y Rabat al videoclip, el festival y el club en directo, aporta una fisicidad cinematográfica y una presencia sin miedo en comercial, contemporáneo, floorwork y heels.">Guadalupe Sánchez — RHY — is a professional dancer moving between the luxury performance circuit of Morocco and the stages of Madrid. From dinner-show residencies in Marrakech and Rabat to music video, festival and live-club work, she brings cinematic physicality and a fearless presence across commercial, contemporary, floorwork and heels.</p>
-  <div class="tags">
-    <span>Commercial</span><span>Contemporary</span><span>Floorwork</span><span>Heels</span>
-    <span data-en="Acrobatic conditioning" data-es="Preparación acrobática">Acrobatic conditioning</span>
-    <span data-en="Teaching" data-es="Docencia">Teaching</span>
-  </div>
+  <p class="lead" id="aboutLead"></p>
+  <p class="body" id="aboutBody"></p>
+  <div class="tags" id="tags"></div>
 </section>
 
 <!-- INSTAGRAM LIVE -->
 <section class="iglive">
   <div class="iglive-head">
-    <div><p class="k" data-en="Live" data-es="En directo">Live</p><h2>@rhyllow</h2></div>
-    <a class="igmsg" href="https://ig.me/m/rhyllow" target="_blank" rel="noopener" data-cursor="Open" data-en="Message on Instagram" data-es="Escribir por Instagram">Message on Instagram</a>
+    <div><p class="k" data-en="Live" data-es="En directo">Live</p><h2 id="igHandle">@rhyllow</h2></div>
+    <a class="igmsg" id="igMsg" href="https://ig.me/m/rhyllow" target="_blank" rel="noopener" data-cursor="Open" data-en="Message on Instagram" data-es="Escribir por Instagram">Message on Instagram</a>
   </div>
   <div class="iggrid" id="iggrid">
     <a href="https://www.instagram.com/rhyllow" target="_blank" rel="noopener" data-cursor="Open"><img src="photos/ig-a.jpg" alt="@rhyllow"></a>
@@ -277,7 +270,6 @@ form.book button:hover{opacity:.82}
     │   2. Connect the @rhyllow Instagram account                    │
     │   3. Paste their embed <script> here and replace the 6 <a>     │
     │      image tags above with their feed <div>.                   │
-    │  Her newest posts then appear automatically on the site.       │
     └──────────────────────────────────────────────────────────────┘
   -->
 </section>
@@ -287,12 +279,7 @@ form.book button:hover{opacity:.82}
   <div class="fgrid">
     <div>
       <h2 data-en="Let's create." data-es="Creemos algo.">Let's create.</h2>
-      <div class="contacts">
-        <a href="mailto:booking@rhyllow.dance" data-cursor="Open"><b>✉</b> booking@rhyllow.dance</a>
-        <a href="https://ig.me/m/rhyllow" target="_blank" rel="noopener" data-cursor="Open"><b>◎</b> <span data-en="Direct message @rhyllow" data-es="Mensaje directo @rhyllow">Direct message @rhyllow</span></a>
-        <a href="https://www.instagram.com/rhyllow" target="_blank" rel="noopener" data-cursor="Open"><b>↗</b> instagram.com/rhyllow</a>
-        <span style="display:flex;gap:12px;align-items:center;color:var(--muted)"><b style="color:var(--fg)">⌖</b> <span data-en="Based in Madrid · available worldwide" data-es="Base en Madrid · disponible en todo el mundo">Based in Madrid · available worldwide</span></span>
-      </div>
+      <div class="contacts" id="footContacts"></div>
       <p class="foot-meta">© 2026 Guadalupe Sánchez · RHY · Madrid</p>
     </div>
     <div>
@@ -363,125 +350,110 @@ form.book button:hover{opacity:.82}
 <aside id="panel">
   <button class="close" onclick="closePanel()" data-cursor="Close">×</button>
   <h3 data-en="Get in touch" data-es="Contacto">Get in touch</h3>
-  <div class="contacts">
-    <a href="mailto:booking@rhyllow.dance" data-cursor="Open"><b>✉</b> booking@rhyllow.dance</a>
-    <a href="https://ig.me/m/rhyllow" target="_blank" rel="noopener" data-cursor="Open"><b>◎</b> <span data-en="Direct message @rhyllow" data-es="Mensaje directo @rhyllow">Direct message @rhyllow</span></a>
-    <a href="https://www.instagram.com/rhyllow" target="_blank" rel="noopener" data-cursor="Open"><b>↗</b> @rhyllow</a>
-  </div>
+  <div class="contacts" id="panelContacts"></div>
   <p style="color:var(--muted);font-size:13px;line-height:1.8;margin-top:28px" data-en="For bookings, casting & collaborations. Response within 48h." data-es="Para contrataciones, casting y colaboraciones. Respuesta en 48h.">For bookings, casting &amp; collaborations. Response within 48h.</p>
   <a href="#contact" onclick="closePanel()" class="igmsg" style="display:inline-block;margin-top:26px" data-cursor="Open" data-en="Booking form →" data-es="Formulario de reserva →">Booking form →</a>
 </aside>
 
 <script>
-/* ================= PROJECT DATA (11 distinct pages, bilingual) ================= */
-const PROJECTS={
-  "dar-soukkar":{order:0,cat:{en:"Stage · Residency",es:"Escena · Residencia"},title:"Palais Dar Soukkar",
-    role:{en:"Featured dancer",es:"Bailarina destacada"},loc:{en:"Marrakech, Morocco",es:"Marrakech, Marruecos"},year:"2024–25",disc:{en:"Commercial · Heels",es:"Comercial · Heels"},
-    hero:{img:"photos/dar-soukkar.jpg"},
-    desc:{en:"Dinner-show residency at one of Marrakech's premier luxury venues. Choreographed sets blending commercial, heels and cinematic staging for a nightly international audience — precision, glamour and stamina across a full season.",es:"Residencia de cena-espectáculo en uno de los locales de lujo más emblemáticos de Marrakech. Coreografías que fusionan comercial, heels y una puesta en escena cinematográfica para un público internacional cada noche — precisión, glamour y resistencia durante toda una temporada."},
-    gallery:["photos/dar-soukkar.jpg","photos/ig-a.jpg","photos/editorial-2.jpg"]},
-  "snor":{order:1,cat:{en:"Screen · Music Video",es:"Pantalla · Videoclip"},title:"Snor — Music Video",
-    role:{en:"Lead / main character",es:"Protagonista principal"},loc:{en:"Morocco",es:"Marruecos"},year:"2024",disc:{en:"Commercial · Acting",es:"Comercial · Interpretación"},
-    hero:{video:"videos/snor.mp4",poster:"photos/snor.jpg"},
-    desc:{en:"Lead role and main character in the official music video for Moroccan rapper Snor. Carrying the narrative on camera — movement direction, expression and presence built for the screen.",es:"Papel protagonista y personaje principal en el videoclip oficial del rapero marroquí Snor. Llevando la narrativa ante la cámara — dirección de movimiento, expresión y presencia pensadas para la pantalla."},
-    gallery:["videos/snor.mp4","photos/snor-2.jpg","photos/skipline.jpg"]},
-  "shoko":{order:2,cat:{en:"Stage · Live venue",es:"Escena · Sala"},title:"Shôko Madrid",
-    role:{en:"Live performer",es:"Intérprete en directo"},loc:{en:"Madrid, Spain",es:"Madrid, España"},year:"2025",disc:{en:"Commercial · Heels",es:"Comercial · Heels"},
-    hero:{img:"photos/shoko.jpg"},
-    desc:{en:"Performances at Shôko Madrid, a flagship club and live venue in the capital. High-energy commercial and heels sets built for a large, close crowd.",es:"Actuaciones en Shôko Madrid, club insignia y sala de directo de la capital. Sets de comercial y heels de alta energía pensados para un público numeroso y cercano."},
-    gallery:["photos/shoko.jpg","photos/ig-d.jpg","photos/cabalgata.jpg"]},
-  "editorial-1":{order:3,cat:{en:"Studio · Editorial",es:"Estudio · Editorial"},title:{en:"Movement Study I",es:"Estudio de movimiento I"},
-    role:{en:"Dancer",es:"Bailarina"},loc:{en:"Studio · Madrid",es:"Estudio · Madrid"},year:"2025",disc:{en:"Floorwork · Contemporary",es:"Floorwork · Contemporáneo"},
-    hero:{video:"videos/reel.mp4",poster:"photos/reel-cover.jpg"},
-    desc:{en:"A studio series exploring floorwork and line — raw physicality captured in black and white. The foundation beneath every stage: control, weight and breath.",es:"Una serie de estudio que explora el floorwork y la línea — fisicidad pura capturada en blanco y negro. La base bajo cada escenario: control, peso y respiración."},
-    gallery:["photos/editorial-1.jpg","photos/g2.jpg","photos/ig-e.jpg"]},
-  "casa-emma":{order:4,cat:{en:"Stage · Residency",es:"Escena · Residencia"},title:"Casa Emma",
-    role:{en:"Featured dancer",es:"Bailarina destacada"},loc:{en:"Rabat, Morocco",es:"Rabat, Marruecos"},year:"2024–25",disc:{en:"Commercial · Heels",es:"Comercial · Heels"},
-    hero:{img:"photos/casa-emma.jpg"},
-    desc:{en:"Dinner-show residency in Rabat — nightly choreographed performance on Morocco's luxury circuit, pairing elegance with commercial punch.",es:"Residencia de cena-espectáculo en Rabat — actuación coreografiada cada noche en el circuito de lujo de Marruecos, uniendo elegancia y fuerza comercial."},
-    gallery:["photos/casa-emma.jpg","photos/dar-soukkar.jpg","photos/ig-b.jpg"]},
-  "nostalgia":{order:5,cat:{en:"Stage · Festival",es:"Escena · Festival"},title:"Nostalgia Lovers Festival",
-    role:{en:"Festival dancer",es:"Bailarina de festival"},loc:{en:"Morocco",es:"Marruecos"},year:"2024",disc:{en:"Commercial · Stage",es:"Comercial · Escena"},
-    hero:{img:"photos/nostalgia.jpg"},
-    desc:{en:"Festival stage performance with AI Dance Agency — large-scale choreography and crowd energy under festival lights.",es:"Actuación en el escenario del festival con AI Dance Agency — coreografía a gran escala y energía de público bajo las luces del festival."},
-    gallery:["photos/nostalgia.jpg","photos/ig-f.jpg","photos/shoko.jpg"]},
-  "editorial-2":{order:6,cat:{en:"Studio · Editorial",es:"Estudio · Editorial"},title:{en:"Movement Study II",es:"Estudio de movimiento II"},
-    role:{en:"Dancer",es:"Bailarina"},loc:{en:"Studio · Madrid",es:"Estudio · Madrid"},year:"2025",disc:{en:"Contemporary",es:"Contemporáneo"},
-    hero:{img:"photos/editorial-2.jpg"},
-    desc:{en:"Contemporary lines and suspension — a black-and-white study of shape and stillness between movements.",es:"Líneas contemporáneas y suspensión — un estudio en blanco y negro de la forma y la quietud entre movimientos."},
-    gallery:["photos/editorial-2.jpg","photos/editorial-1.jpg","photos/ig-a.jpg"]},
-  "cabalgata":{order:7,cat:{en:"Stage · Parade",es:"Escena · Cabalgata"},title:"Cabalgata de Reyes",
-    role:{en:"Parade performer",es:"Intérprete de cabalgata"},loc:{en:"Comunidad de Madrid",es:"Comunidad de Madrid"},year:"2025",disc:{en:"Commercial · Stage",es:"Comercial · Escena"},
-    hero:{img:"photos/cabalgata.jpg"},
-    desc:{en:"Performing in the Three Kings Parade (Cabalgata de Reyes) for the Comunidad de Madrid — one of the city's largest public events, danced for tens of thousands along the route.",es:"Actuación en la Cabalgata de Reyes para la Comunidad de Madrid — uno de los mayores eventos públicos de la ciudad, bailada para decenas de miles de personas a lo largo del recorrido."},
-    gallery:["photos/cabalgata.jpg","photos/shoko.jpg","photos/ig-d.jpg"]},
-  "skipline":{order:8,cat:{en:"Screen · Production",es:"Pantalla · Producción"},title:"Skipline Productions",
-    role:{en:"Dancer",es:"Bailarina"},loc:{en:"Rabat · Quartier Hassan",es:"Rabat · Quartier Hassan"},year:"2024",disc:{en:"Commercial · Screen",es:"Comercial · Pantalla"},
-    hero:{img:"photos/skipline.jpg"},
-    desc:{en:"Production work with Skipline Productions in Rabat's Quartier Hassan — dance built for the camera and the edit.",es:"Trabajo de producción con Skipline Productions en el Quartier Hassan de Rabat — danza pensada para la cámara y el montaje."},
-    gallery:["photos/skipline.jpg","photos/snor.jpg","photos/ig-c.jpg"]},
-  "editorial-3":{order:9,cat:{en:"Studio · Editorial",es:"Estudio · Editorial"},title:{en:"The Leap",es:"El salto"},
-    role:{en:"Dancer",es:"Bailarina"},loc:{en:"Studio · Madrid",es:"Estudio · Madrid"},year:"2024",disc:{en:"Contemporary · Elevation",es:"Contemporáneo · Elevación"},
-    hero:{img:"photos/editorial-3.jpg"},
-    desc:{en:"A single suspended instant — full extension caught mid-air against a bare studio wall. Power, line and control distilled into one frame; the signature image of RHY's editorial work.",es:"Un único instante suspendido — extensión total capturada en el aire contra una pared de estudio desnuda. Potencia, línea y control destilados en un solo fotograma; la imagen insignia del trabajo editorial de RHY."},
-    gallery:["photos/editorial-3.jpg","photos/editorial-4.jpg","photos/editorial-1.jpg"]},
-  "editorial-4":{order:10,cat:{en:"Studio · Editorial",es:"Estudio · Editorial"},title:{en:"Grounded",es:"Arraigo"},
-    role:{en:"Dancer",es:"Bailarina"},loc:{en:"Studio · Madrid",es:"Estudio · Madrid"},year:"2024",disc:{en:"Floorwork · Strength",es:"Floorwork · Fuerza"},
-    hero:{img:"photos/editorial-4.jpg"},
-    desc:{en:"Low, wide and rooted — a study in tension and reflection on a polished floor. The counterweight to the leap: everything held close to the ground before it releases.",es:"Bajo, amplio y arraigado — un estudio de tensión y reflejo sobre un suelo pulido. El contrapeso del salto: todo contenido junto al suelo antes de liberarse."},
-    gallery:["photos/editorial-4.jpg","photos/editorial-3.jpg","photos/editorial-2.jpg"]}
+/* ================= FALLBACK CONTENT (used when JSON can't be fetched, e.g. file://) ================= */
+const FALLBACK_SITE={
+  kicker_en:"Dancer · Performer · Movement Artist — Madrid / Morocco",
+  kicker_es:"Bailarina · Intérprete · Artista del movimiento — Madrid / Marruecos",
+  bio_lead_en:"«Miro al miedo con coraje.»", bio_lead_es:"«Miro al miedo con coraje.»",
+  bio_en:"Guadalupe Sánchez — RHY — is a professional dancer moving between the luxury performance circuit of Morocco and the stages of Madrid. From dinner-show residencies in Marrakech and Rabat to music video, festival and live-club work, she brings cinematic physicality and a fearless presence across commercial, contemporary, floorwork and heels.",
+  bio_es:"Guadalupe Sánchez — RHY — es bailarina profesional que transita entre el circuito de espectáculo de lujo de Marruecos y los escenarios de Madrid. De residencias de cena-espectáculo en Marrakech y Rabat al videoclip, el festival y el club en directo, aporta una fisicidad cinematográfica y una presencia sin miedo en comercial, contemporáneo, floorwork y heels.",
+  tags:[{en:"Commercial",es:"Comercial"},{en:"Contemporary",es:"Contemporáneo"},{en:"Floorwork",es:"Floorwork"},{en:"Heels",es:"Heels"},{en:"Acrobatic conditioning",es:"Preparación acrobática"},{en:"Teaching",es:"Docencia"}],
+  email:"booking@rhyllow.dance", instagram:"@rhyllow", instagram_url:"https://www.instagram.com/rhyllow",
+  dm_url:"https://ig.me/m/rhyllow", location_en:"Based in Madrid · available worldwide", location_es:"Base en Madrid · disponible en todo el mundo"
 };
-const PJ_ORDER=Object.keys(PROJECTS).sort((a,b)=>PROJECTS[a].order-PROJECTS[b].order);
-
-/* ================= GALLERY MEDIA (feeds scatter + grid) ================= */
-const PHOTOS=[
-  {file:"photos/dar-soukkar.jpg",w:1200,h:1500,cat:"stage",project:"dar-soukkar"},
-  {type:"video",file:"videos/snor.mp4",poster:"photos/snor.jpg",w:1374,h:720,cat:"screen",project:"snor"},
-  {file:"photos/editorial-3.jpg",w:1123,h:1400,cat:"studio",project:"editorial-3"},
-  {file:"photos/casa-emma.jpg",w:1200,h:2134,cat:"stage",project:"casa-emma"},
-  {file:"photos/shoko.jpg",w:1200,h:2134,cat:"stage",project:"shoko"},
-  {file:"photos/editorial-1.jpg",w:1120,h:1400,cat:"studio",project:"editorial-1"},
-  {file:"photos/nostalgia.jpg",w:1200,h:1600,cat:"stage",project:"nostalgia"},
-  {file:"photos/snor-2.jpg",w:1200,h:628,cat:"screen",project:"snor"},
-  {file:"photos/editorial-4.jpg",w:1122,h:1400,cat:"studio",project:"editorial-4"},
-  {file:"photos/cabalgata.jpg",w:1052,h:1400,cat:"stage",project:"cabalgata"},
-  {file:"photos/editorial-2.jpg",w:1200,h:2134,cat:"studio",project:"editorial-2"},
-  {file:"photos/skipline.jpg",w:1101,h:1400,cat:"screen",project:"skipline"},
-  {type:"video",file:"videos/reel.mp4",poster:"photos/reel-cover.jpg",w:576,h:720,cat:"studio",project:"editorial-1"},
-  {file:"photos/g2.jpg",w:1102,h:1400,cat:"studio",project:"editorial-2"},
-  {file:"photos/g4.jpg",w:1101,h:1400,cat:"studio",project:"editorial-3"}
+const FALLBACK_PROJECTS=[
+ {id:"dar-soukkar",order:0,category:"stage",cat_en:"Stage · Residency",cat_es:"Escena · Residencia",title_en:"Palais Dar Soukkar",title_es:"Palais Dar Soukkar",role_en:"Featured dancer",role_es:"Bailarina destacada",loc_en:"Marrakech, Morocco",loc_es:"Marrakech, Marruecos",year:"2024–25",disc_en:"Commercial · Heels",disc_es:"Comercial · Heels",desc_en:"Dinner-show residency at one of Marrakech's premier luxury venues. Choreographed sets blending commercial, heels and cinematic staging for a nightly international audience — precision, glamour and stamina across a full season.",desc_es:"Residencia de cena-espectáculo en uno de los locales de lujo más emblemáticos de Marrakech. Coreografías que fusionan comercial, heels y una puesta en escena cinematográfica para un público internacional cada noche.",card_media:"photos/dar-soukkar.jpg",card_is_video:false,card_poster:"",card_w:1200,card_h:1500,hero_media:"photos/dar-soukkar.jpg",hero_is_video:false,hero_poster:"",gallery:["photos/dar-soukkar.jpg","photos/ig-a.jpg","photos/editorial-2.jpg"]},
+ {id:"snor",order:1,category:"screen",cat_en:"Screen · Music Video",cat_es:"Pantalla · Videoclip",title_en:"Snor — Music Video",title_es:"Snor — Videoclip",role_en:"Lead / main character",role_es:"Protagonista principal",loc_en:"Morocco",loc_es:"Marruecos",year:"2024",disc_en:"Commercial · Acting",disc_es:"Comercial · Interpretación",desc_en:"Lead role and main character in the official music video for Moroccan rapper Snor. Carrying the narrative on camera — movement direction, expression and presence built for the screen.",desc_es:"Papel protagonista y personaje principal en el videoclip oficial del rapero marroquí Snor. Llevando la narrativa ante la cámara.",card_media:"videos/snor.mp4",card_is_video:true,card_poster:"photos/snor.jpg",card_w:1374,card_h:720,hero_media:"videos/snor.mp4",hero_is_video:true,hero_poster:"photos/snor.jpg",gallery:["videos/snor.mp4","photos/snor-2.jpg","photos/skipline.jpg"]},
+ {id:"editorial-3",order:2,category:"studio",cat_en:"Studio · Editorial",cat_es:"Estudio · Editorial",title_en:"The Leap",title_es:"El salto",role_en:"Dancer",role_es:"Bailarina",loc_en:"Studio · Madrid",loc_es:"Estudio · Madrid",year:"2024",disc_en:"Contemporary · Elevation",disc_es:"Contemporáneo · Elevación",desc_en:"A single suspended instant — full extension caught mid-air against a bare studio wall. Power, line and control distilled into one frame; the signature image of RHY's editorial work.",desc_es:"Un único instante suspendido — extensión total capturada en el aire contra una pared de estudio desnuda.",card_media:"photos/editorial-3.jpg",card_is_video:false,card_poster:"",card_w:1123,card_h:1400,hero_media:"photos/editorial-3.jpg",hero_is_video:false,hero_poster:"",gallery:["photos/editorial-3.jpg","photos/editorial-4.jpg","photos/editorial-1.jpg"]},
+ {id:"casa-emma",order:3,category:"stage",cat_en:"Stage · Residency",cat_es:"Escena · Residencia",title_en:"Casa Emma",title_es:"Casa Emma",role_en:"Featured dancer",role_es:"Bailarina destacada",loc_en:"Rabat, Morocco",loc_es:"Rabat, Marruecos",year:"2024–25",disc_en:"Commercial · Heels",disc_es:"Comercial · Heels",desc_en:"Dinner-show residency in Rabat — nightly choreographed performance on Morocco's luxury circuit, pairing elegance with commercial punch.",desc_es:"Residencia de cena-espectáculo en Rabat — actuación coreografiada cada noche en el circuito de lujo de Marruecos.",card_media:"photos/casa-emma.jpg",card_is_video:false,card_poster:"",card_w:1200,card_h:2134,hero_media:"photos/casa-emma.jpg",hero_is_video:false,hero_poster:"",gallery:["photos/casa-emma.jpg","photos/dar-soukkar.jpg","photos/ig-b.jpg"]},
+ {id:"shoko",order:4,category:"stage",cat_en:"Stage · Live venue",cat_es:"Escena · Sala",title_en:"Shôko Madrid",title_es:"Shôko Madrid",role_en:"Live performer",role_es:"Intérprete en directo",loc_en:"Madrid, Spain",loc_es:"Madrid, España",year:"2025",disc_en:"Commercial · Heels",disc_es:"Comercial · Heels",desc_en:"Performances at Shôko Madrid, a flagship club and live venue in the capital. High-energy commercial and heels sets built for a large, close crowd.",desc_es:"Actuaciones en Shôko Madrid, club insignia y sala de directo de la capital.",card_media:"photos/shoko.jpg",card_is_video:false,card_poster:"",card_w:1200,card_h:2134,hero_media:"photos/shoko.jpg",hero_is_video:false,hero_poster:"",gallery:["photos/shoko.jpg","photos/ig-d.jpg","photos/cabalgata.jpg"]},
+ {id:"editorial-1",order:5,category:"studio",cat_en:"Studio · Editorial",cat_es:"Estudio · Editorial",title_en:"Movement Study I",title_es:"Estudio de movimiento I",role_en:"Dancer",role_es:"Bailarina",loc_en:"Studio · Madrid",loc_es:"Estudio · Madrid",year:"2025",disc_en:"Floorwork · Contemporary",disc_es:"Floorwork · Contemporáneo",desc_en:"A studio series exploring floorwork and line — raw physicality captured in black and white. The foundation beneath every stage: control, weight and breath.",desc_es:"Una serie de estudio que explora el floorwork y la línea — fisicidad pura capturada en blanco y negro.",card_media:"videos/reel.mp4",card_is_video:true,card_poster:"photos/reel-cover.jpg",card_w:576,card_h:720,hero_media:"videos/reel.mp4",hero_is_video:true,hero_poster:"photos/reel-cover.jpg",gallery:["photos/editorial-1.jpg","photos/g2.jpg","photos/ig-e.jpg"]},
+ {id:"nostalgia",order:6,category:"stage",cat_en:"Stage · Festival",cat_es:"Escena · Festival",title_en:"Nostalgia Lovers Festival",title_es:"Nostalgia Lovers Festival",role_en:"Festival dancer",role_es:"Bailarina de festival",loc_en:"Morocco",loc_es:"Marruecos",year:"2024",disc_en:"Commercial · Stage",disc_es:"Comercial · Escena",desc_en:"Festival stage performance with AI Dance Agency — large-scale choreography and crowd energy under festival lights.",desc_es:"Actuación en el escenario del festival con AI Dance Agency — coreografía a gran escala y energía de público.",card_media:"photos/nostalgia.jpg",card_is_video:false,card_poster:"",card_w:1200,card_h:1600,hero_media:"photos/nostalgia.jpg",hero_is_video:false,hero_poster:"",gallery:["photos/nostalgia.jpg","photos/ig-f.jpg","photos/shoko.jpg"]},
+ {id:"editorial-4",order:7,category:"studio",cat_en:"Studio · Editorial",cat_es:"Estudio · Editorial",title_en:"Grounded",title_es:"Arraigo",role_en:"Dancer",role_es:"Bailarina",loc_en:"Studio · Madrid",loc_es:"Estudio · Madrid",year:"2024",disc_en:"Floorwork · Strength",disc_es:"Floorwork · Fuerza",desc_en:"Low, wide and rooted — a study in tension and reflection on a polished floor. The counterweight to the leap: everything held close to the ground before it releases.",desc_es:"Bajo, amplio y arraigado — un estudio de tensión y reflejo sobre un suelo pulido.",card_media:"photos/editorial-4.jpg",card_is_video:false,card_poster:"",card_w:1122,card_h:1400,hero_media:"photos/editorial-4.jpg",hero_is_video:false,hero_poster:"",gallery:["photos/editorial-4.jpg","photos/editorial-3.jpg","photos/editorial-2.jpg"]},
+ {id:"cabalgata",order:8,category:"stage",cat_en:"Stage · Parade",cat_es:"Escena · Cabalgata",title_en:"Cabalgata de Reyes",title_es:"Cabalgata de Reyes",role_en:"Parade performer",role_es:"Intérprete de cabalgata",loc_en:"Comunidad de Madrid",loc_es:"Comunidad de Madrid",year:"2025",disc_en:"Commercial · Stage",disc_es:"Comercial · Escena",desc_en:"Performing in the Three Kings Parade (Cabalgata de Reyes) for the Comunidad de Madrid — one of the city's largest public events, danced for tens of thousands along the route.",desc_es:"Actuación en la Cabalgata de Reyes para la Comunidad de Madrid — uno de los mayores eventos públicos de la ciudad.",card_media:"photos/cabalgata.jpg",card_is_video:false,card_poster:"",card_w:1052,card_h:1400,hero_media:"photos/cabalgata.jpg",hero_is_video:false,hero_poster:"",gallery:["photos/cabalgata.jpg","photos/shoko.jpg","photos/ig-d.jpg"]},
+ {id:"editorial-2",order:9,category:"studio",cat_en:"Studio · Editorial",cat_es:"Estudio · Editorial",title_en:"Movement Study II",title_es:"Estudio de movimiento II",role_en:"Dancer",role_es:"Bailarina",loc_en:"Studio · Madrid",loc_es:"Estudio · Madrid",year:"2025",disc_en:"Contemporary",disc_es:"Contemporáneo",desc_en:"Contemporary lines and suspension — a black-and-white study of shape and stillness between movements.",desc_es:"Líneas contemporáneas y suspensión — un estudio en blanco y negro de la forma y la quietud.",card_media:"photos/editorial-2.jpg",card_is_video:false,card_poster:"",card_w:1200,card_h:2134,hero_media:"photos/editorial-2.jpg",hero_is_video:false,hero_poster:"",gallery:["photos/editorial-2.jpg","photos/editorial-1.jpg","photos/ig-a.jpg"]},
+ {id:"skipline",order:10,category:"screen",cat_en:"Screen · Production",cat_es:"Pantalla · Producción",title_en:"Skipline Productions",title_es:"Skipline Productions",role_en:"Dancer",role_es:"Bailarina",loc_en:"Rabat · Quartier Hassan",loc_es:"Rabat · Quartier Hassan",year:"2024",disc_en:"Commercial · Screen",disc_es:"Comercial · Pantalla",desc_en:"Production work with Skipline Productions in Rabat's Quartier Hassan — dance built for the camera and the edit.",desc_es:"Trabajo de producción con Skipline Productions en el Quartier Hassan de Rabat.",card_media:"photos/skipline.jpg",card_is_video:false,card_poster:"",card_w:1101,card_h:1400,hero_media:"photos/skipline.jpg",hero_is_video:false,hero_poster:"",gallery:["photos/skipline.jpg","photos/snor.jpg","photos/ig-c.jpg"]}
 ];
 
-/* ================= STATE / HELPERS ================= */
+/* ================= STATE ================= */
 let es=false, currentCat="all", currentView="scatter", currentProject=null;
+let SITE={}, PROJECTS={}, PHOTOS=[], PJ_ORDER=[];
 const L=(v)=> v==null?"":(typeof v==="object"?(es?v.es:v.en):v);
 const isMobile=()=>window.matchMedia("(max-width:768px),(hover:none)").matches;
+const byId=id=>document.getElementById(id);
+const norm=p=>(p||"").replace(/^\//,"");
+const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+
+/* ================= BUILD internal structures from flat data ================= */
+function build(arr){
+  arr=arr.slice().sort((a,b)=>a.order-b.order);
+  PROJECTS={}; PHOTOS=[];
+  arr.forEach(j=>{
+    PROJECTS[j.id]={order:j.order,cat:{en:j.cat_en,es:j.cat_es},title:{en:j.title_en,es:j.title_es},
+      role:{en:j.role_en,es:j.role_es},loc:{en:j.loc_en,es:j.loc_es},year:j.year,disc:{en:j.disc_en,es:j.disc_es},
+      hero:j.hero_is_video?{video:norm(j.hero_media),poster:norm(j.hero_poster)}:{img:norm(j.hero_media)},
+      desc:{en:j.desc_en,es:j.desc_es},gallery:(j.gallery||[]).map(norm)};
+    PHOTOS.push(j.card_is_video
+      ?{type:"video",file:norm(j.card_media),poster:norm(j.card_poster),w:j.card_w,h:j.card_h,cat:j.category,project:j.id}
+      :{file:norm(j.card_media),w:j.card_w,h:j.card_h,cat:j.category,project:j.id});
+  });
+  PJ_ORDER=Object.keys(PROJECTS).sort((a,b)=>PROJECTS[a].order-PROJECTS[b].order);
+}
+
+/* ================= APPLY SITE INFO to DOM ================= */
+function bil(el,en,es_){ if(!el)return; el.setAttribute("data-en",en);el.setAttribute("data-es",es_);el.innerHTML=es?es_:en; }
+function contactRows(s,withHandle){
+  const igText=s.instagram_url.replace(/^https?:\/\/(www\.)?/,"");
+  return `<a href="mailto:${esc(s.email)}" data-cursor="Open"><b>✉</b> ${esc(s.email)}</a>`
+    +`<a href="${esc(s.dm_url)}" target="_blank" rel="noopener" data-cursor="Open"><b>◎</b> <span data-en="Direct message ${esc(s.instagram)}" data-es="Mensaje directo ${esc(s.instagram)}">Direct message ${esc(s.instagram)}</span></a>`
+    +`<a href="${esc(s.instagram_url)}" target="_blank" rel="noopener" data-cursor="Open"><b>↗</b> ${esc(withHandle?s.instagram:igText)}</a>`
+    +(withHandle?"":`<span class="ln"><b>⌖</b> <span data-en="${esc(s.location_en)}" data-es="${esc(s.location_es)}">${es?esc(s.location_es):esc(s.location_en)}</span></span>`);
+}
+function applySite(s){
+  SITE=s;
+  bil(byId("kicker"),s.kicker_en,s.kicker_es);
+  bil(byId("aboutLead"),s.bio_lead_en,s.bio_lead_es);
+  bil(byId("aboutBody"),s.bio_en,s.bio_es);
+  byId("tags").innerHTML=(s.tags||[]).map(t=>`<span data-en="${esc(t.en)}" data-es="${esc(t.es)}">${es?esc(t.es):esc(t.en)}</span>`).join("");
+  byId("igHandle").textContent=s.instagram;
+  byId("igMsg").href=s.dm_url;
+  byId("footContacts").innerHTML=contactRows(s,false);
+  byId("panelContacts").innerHTML=contactRows(s,true);
+}
+
+/* ================= GALLERY HELPERS ================= */
 function mediaHTML(p){
-  const inner = p.type==="video"
+  const inner=p.type==="video"
     ? `<video src="${p.file}" poster="${p.poster||''}" autoplay muted loop playsinline></video><span class="vtag">Video</span>`
-    : `<img src="${p.file}" alt="${L(PROJECTS[p.project].title)}" loading="lazy">`;
+    : `<img src="${p.file}" alt="${esc(L(PROJECTS[p.project].title))}" loading="lazy">`;
   return `<div class="media">${inner}</div>`;
 }
 function capHTML(p){
   const pr=PROJECTS[p.project];
-  return `<div class="cap"><h4>${L(pr.title)}</h4><p>${L(pr.cat)}</p><span class="seemore">${es?"Ver más →":"See more →"}</span></div>`;
+  return `<div class="cap"><h4>${esc(L(pr.title))}</h4><p>${esc(L(pr.cat))}</p><span class="seemore">${es?"Ver más →":"See more →"}</span></div>`;
 }
 function listFor(){ return currentCat==="all"?PHOTOS:PHOTOS.filter(p=>p.cat===currentCat); }
 
 /* ================= SKYLINE LAYOUT (scatter) ================= */
 function mulberry32(a){return function(){a|=0;a=(a+0x6d2b79f5)|0;let t=Math.imul(a^(a>>>15),1|a);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296;};}
 function buildLayout(items,W,seed=7){
-  const rng=mulberry32(seed), FINE=48, unit=W/FINE, gapX=W*0.016, gapY=Math.max(30,W*0.028);
+  const rng=mulberry32(seed),FINE=48,unit=W/FINE,gapX=W*0.016,gapY=Math.max(30,W*0.028);
   const sky=new Array(FINE).fill(0);
-  const baseH=Math.min(Math.max(W*0.26,300),480), minW=W*0.24, maxW=W*0.5, placed=[];
+  const baseH=Math.min(Math.max(W*0.26,300),480),minW=W*0.24,maxW=W*0.5,placed=[];
   items.forEach((p,i)=>{
-    const feat=i%9===0, th=baseH*(0.9+rng()*0.24)*(feat?1.14:1), r=p.w/p.h;
+    const feat=i%9===0,th=baseH*(0.9+rng()*0.24)*(feat?1.14:1),r=p.w/p.h;
     let width=Math.min(Math.max(th*r,minW),maxW);
     let span=Math.min(Math.max(7,Math.round(width/unit)),FINE-2);
     width=span*unit-gapX; const height=width/r;
     let bs=0,bt=Infinity;
     for(let s=0;s<=FINE-span;s++){let t=0;for(let c=s;c<s+span;c++)t=Math.max(t,sky[c]);if(t<bt-0.5){bt=t;bs=s;}}
-    const x=bs*unit+gapX/2, y=bt+gapY;
+    const x=bs*unit+gapX/2,y=bt+gapY;
     placed.push({...p,x,y,width,height});
     for(let c=bs;c<bs+span;c++)sky[c]=y+height;
   });
@@ -489,10 +461,10 @@ function buildLayout(items,W,seed=7){
 }
 
 /* ================= RENDER GALLERY ================= */
-const host=document.getElementById("gallery");
+const host=byId("gallery");
 function renderGallery(){
   const list=listFor();
-  const useGrid = currentView==="grid" || isMobile();
+  const useGrid=currentView==="grid"||isMobile();
   if(useGrid){
     host.className="grid"; host.style.height="auto";
     host.innerHTML=list.map(p=>
@@ -507,15 +479,13 @@ function renderGallery(){
   }
   bindCursor();
 }
-/* filters */
-document.getElementById("fbtns").addEventListener("click",e=>{
+byId("fbtns").addEventListener("click",e=>{
   const b=e.target.closest("button"); if(!b)return;
   currentCat=b.dataset.filter;
   document.querySelectorAll("#fbtns button").forEach(x=>x.classList.toggle("active",x===b));
   renderGallery();
 });
-/* view toggle */
-document.getElementById("viewtoggle").addEventListener("click",e=>{
+byId("viewtoggle").addEventListener("click",e=>{
   const b=e.target.closest("button"); if(!b)return;
   currentView=b.dataset.view;
   document.querySelectorAll("#viewtoggle button").forEach(x=>x.classList.toggle("on",x===b));
@@ -523,8 +493,8 @@ document.getElementById("viewtoggle").addEventListener("click",e=>{
 });
 
 /* ================= CUSTOM CURSOR ================= */
-const cdot=document.getElementById("cdot"), clabel=document.getElementById("clabel");
-let cx=innerWidth/2, cy=innerHeight/2, dx=cx, dy=cy;
+const cdot=byId("cdot"),clabel=byId("clabel");
+let cx=innerWidth/2,cy=innerHeight/2,dx=cx,dy=cy;
 window.addEventListener("mousemove",e=>{cx=e.clientX;cy=e.clientY;});
 (function cl(){dx+=(cx-dx)*0.2;dy+=(cy-dy)*0.2;
   cdot.style.transform=`translate(${dx}px,${dy}px) translate(-50%,-50%)`;
@@ -549,30 +519,28 @@ function galItem(src){
 }
 function renderProject(id){
   const p=PROJECTS[id]; if(!p)return; currentProject=id;
-  document.getElementById("pjhero-media").innerHTML=heroMedia(p.hero);
-  document.getElementById("pjtag").textContent=L(p.cat);
-  document.getElementById("pjtitle").textContent=L(p.title);
-  document.getElementById("pjrole").textContent=L(p.role);
-  document.getElementById("pjloc").textContent=L(p.loc);
-  document.getElementById("pjyear").textContent=p.year;
-  document.getElementById("pjdisc").textContent=L(p.disc);
-  document.getElementById("pjdesc").textContent=L(p.desc);
-  document.getElementById("pjgallery").innerHTML=p.gallery.map(galItem).join("");
-  const i=PJ_ORDER.indexOf(id), np=PROJECTS[PJ_ORDER[(i+1)%PJ_ORDER.length]];
-  document.getElementById("pjnext-btn").textContent=L(np.title)+"  →";
+  byId("pjhero-media").innerHTML=heroMedia(p.hero);
+  byId("pjtag").textContent=L(p.cat);
+  byId("pjtitle").textContent=L(p.title);
+  byId("pjrole").textContent=L(p.role);
+  byId("pjloc").textContent=L(p.loc);
+  byId("pjyear").textContent=p.year;
+  byId("pjdisc").textContent=L(p.disc);
+  byId("pjdesc").textContent=L(p.desc);
+  byId("pjgallery").innerHTML=p.gallery.map(galItem).join("");
+  const i=PJ_ORDER.indexOf(id),np=PROJECTS[PJ_ORDER[(i+1)%PJ_ORDER.length]];
+  byId("pjnext-btn").textContent=L(np.title)+"  →";
   bindCursor();
 }
-function go(id){ location.hash="#project/"+id; }        // shareable + back-button
+function go(id){ location.hash="#project/"+id; }
 function openProject(id){
   if(!PROJECTS[id])return;
   renderProject(id);
-  const v=document.getElementById("project");
-  v.classList.add("open"); v.setAttribute("aria-hidden","false"); v.scrollTop=0;
+  const v=byId("project"); v.classList.add("open"); v.setAttribute("aria-hidden","false"); v.scrollTop=0;
   document.body.style.overflow="hidden";
 }
 function closeProject(){
-  const v=document.getElementById("project");
-  v.classList.remove("open"); v.setAttribute("aria-hidden","true");
+  const v=byId("project"); v.classList.remove("open"); v.setAttribute("aria-hidden","true");
   document.body.style.overflow=""; currentProject=null;
   if(location.hash.startsWith("#project/")) history.pushState("",document.title,location.pathname+location.search);
 }
@@ -587,21 +555,22 @@ function routeFromHash(){
 window.addEventListener("hashchange",routeFromHash);
 
 /* ================= PANEL / BOOKING / LANG / THEME ================= */
-function openPanel(){document.getElementById("panel").classList.add("open");document.getElementById("scrim").classList.add("open");}
-function closePanel(){document.getElementById("panel").classList.remove("open");document.getElementById("scrim").classList.remove("open");}
+function openPanel(){byId("panel").classList.add("open");byId("scrim").classList.add("open");}
+function closePanel(){byId("panel").classList.remove("open");byId("scrim").classList.remove("open");}
 function submitBooking(e){
   e.preventDefault();
-  document.getElementById("bkNote").style.display="block";
-  const g=id=>encodeURIComponent(document.getElementById(id).value||"");
+  byId("bkNote").style.display="block";
+  const g=id=>encodeURIComponent(byId(id).value||"");
   const body=`Name: ${g("bk-name")}%0D%0AEmail: ${g("bk-email")}%0D%0ACompany: ${g("bk-company")}%0D%0AType: ${g("bk-type")}%0D%0ALocation: ${g("bk-loc")}%0D%0ADate: ${g("bk-date")}%0D%0A%0D%0A${g("bk-msg")}`;
-  setTimeout(()=>{window.location.href=`mailto:booking@rhyllow.dance?subject=Booking%20request%20—%20RHY&body=${body}`;},700);
+  const to=(SITE.email||"booking@rhyllow.dance");
+  setTimeout(()=>{window.location.href=`mailto:${to}?subject=Booking%20request%20—%20RHY&body=${body}`;},700);
 }
 function toggleLang(){
   es=!es;
   document.querySelectorAll("[data-en]").forEach(el=>{const v=es?el.getAttribute("data-es"):el.getAttribute("data-en");if(v!==null)el.innerHTML=v;});
   document.documentElement.lang=es?"es":"en";
-  document.getElementById("langBtn").textContent=es?"ES / EN":"EN / ES";
-  document.getElementById("langBtn").dataset.cursor=es?"EN":"ES";
+  byId("langBtn").textContent=es?"ES / EN":"EN / ES";
+  byId("langBtn").dataset.cursor=es?"EN":"ES";
   renderGallery();
   if(currentProject)renderProject(currentProject);
 }
@@ -611,7 +580,22 @@ function toggleTheme(){
 }
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){if(currentProject)closeProject();else closePanel();}});
 let rt; window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(renderGallery,220);});
-window.addEventListener("DOMContentLoaded",()=>{renderGallery();bindCursor();routeFromHash();});
+
+/* ================= LOAD CONTENT (JSON with fallback) ================= */
+async function loadContent(){
+  let site=FALLBACK_SITE, projects=FALLBACK_PROJECTS;
+  try{
+    const [rs,rp]=await Promise.all([fetch("content/site.json",{cache:"no-store"}),fetch("content/projects.json",{cache:"no-store"})]);
+    if(rs.ok){const d=await rs.json(); if(d) site=d;}
+    if(rp.ok){const d=await rp.json(); if(d&&Array.isArray(d.projects)&&d.projects.length) projects=d.projects;}
+  }catch(e){/* file:// or offline → fallback content is used */}
+  applySite(site);
+  build(projects);
+  renderGallery();
+  bindCursor();
+  routeFromHash();
+}
+window.addEventListener("DOMContentLoaded",loadContent);
 </script>
 </body>
 </html>

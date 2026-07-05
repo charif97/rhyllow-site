@@ -1,72 +1,87 @@
 # ─────────────────────────────────────────────────────────────
 #  RHY · Panneau admin (Sveltia / Decap CMS)
 #  Guadalupe se connecte sur  tonsite.com/admin  et édite ci-dessous.
-#  Auth via GitHub OAuth (voir le guide de déploiement).
+#  Ce que l'admin écrit = les fichiers que le site lit (content/*.json).
 # ─────────────────────────────────────────────────────────────
 backend:
   name: github
   repo: charif97/rhyllow-site
   branch: main
 
-# Où sont uploadées les nouvelles photos/vidéos
 media_folder: "photos"
 public_folder: "photos"
-
-# Langue de l'interface admin
 locale: "fr"
 
 collections:
-  # ── 1. Coordonnées & infos du site ──────────────────────────
+  # ── 1. Infos & coordonnées → content/site.json ──────────────
   - name: "site"
     label: "Infos & coordonnées"
     files:
       - name: "info"
-        label: "Coordonnées"
+        label: "Coordonnées & bio"
         file: "content/site.json"
         fields:
-          - { name: "email", label: "Email de booking", widget: "string" }
-          - { name: "instagram", label: "Instagram (@)", widget: "string", default: "@rhyllow" }
-          - { name: "instagram_url", label: "Lien Instagram", widget: "string", default: "https://www.instagram.com/rhyllow" }
-          - { name: "dm_url", label: "Lien message direct (DM)", widget: "string", default: "https://ig.me/m/rhyllow" }
-          - { name: "location", label: "Localisation", widget: "string", default: "Madrid · available worldwide" }
+          - { name: "kicker_en", label: "Accroche héro (EN)", widget: "string" }
+          - { name: "kicker_es", label: "Accroche héro (ES)", widget: "string" }
+          - { name: "bio_lead_en", label: "Citation (EN)", widget: "string" }
+          - { name: "bio_lead_es", label: "Citation (ES)", widget: "string" }
           - { name: "bio_en", label: "Bio (EN)", widget: "text" }
           - { name: "bio_es", label: "Bio (ES)", widget: "text" }
+          - name: "tags"
+            label: "Disciplines (chips)"
+            widget: "list"
+            fields:
+              - { name: "en", label: "EN", widget: "string" }
+              - { name: "es", label: "ES", widget: "string" }
+          - { name: "email", label: "Email de booking", widget: "string" }
+          - { name: "instagram", label: "Instagram (@)", widget: "string" }
+          - { name: "instagram_url", label: "Lien Instagram", widget: "string" }
+          - { name: "dm_url", label: "Lien message direct (DM)", widget: "string" }
+          - { name: "location_en", label: "Localisation (EN)", widget: "string" }
+          - { name: "location_es", label: "Localisation (ES)", widget: "string" }
 
-  # ── 2. Médias de la galerie (canvas) ────────────────────────
-  - name: "gallery"
-    label: "Galerie (photos & vidéos)"
-    folder: "content/gallery"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { name: "name_en", label: "Titre (EN)", widget: "string" }
-      - { name: "name_es", label: "Titre (ES)", widget: "string" }
-      - name: "category"
-        label: "Catégorie"
-        widget: "select"
-        options: ["stage", "screen", "studio"]
-      - { name: "media", label: "Photo ou vidéo", widget: "file" }
-      - { name: "is_video", label: "C'est une vidéo ?", widget: "boolean", default: false }
-      - { name: "order", label: "Ordre d'affichage", widget: "number", default: 1 }
-
-  # ── 3. Projets (pages « See more ») ─────────────────────────
+  # ── 2. Projets & galerie → content/projects.json ────────────
   - name: "projects"
-    label: "Projets"
-    folder: "content/projects"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { name: "title_en", label: "Titre (EN)", widget: "string" }
-      - { name: "title_es", label: "Titre (ES)", widget: "string" }
-      - name: "category"
-        label: "Catégorie"
-        widget: "select"
-        options: ["stage", "screen", "studio"]
-      - { name: "role", label: "Rôle", widget: "string" }
-      - { name: "location", label: "Lieu", widget: "string" }
-      - { name: "year", label: "Année", widget: "string" }
-      - { name: "discipline", label: "Discipline", widget: "string" }
-      - { name: "hero", label: "Média principal", widget: "file" }
-      - { name: "description_en", label: "Description (EN)", widget: "text" }
-      - { name: "description_es", label: "Description (ES)", widget: "text" }
-      - { name: "gallery", label: "Galerie du projet", widget: "list", field: { name: "image", label: "Image", widget: "file" } }
+    label: "Projets & galerie"
+    files:
+      - name: "list"
+        label: "Liste des projets"
+        file: "content/projects.json"
+        fields:
+          - name: "projects"
+            label: "Projets"
+            label_singular: "Projet"
+            widget: "list"
+            summary: "{{fields.title_en}}"
+            fields:
+              - { name: "id", label: "Identifiant (slug, sans espaces)", widget: "string", hint: "ex: dar-soukkar — sert à l'URL de la fiche" }
+              - { name: "order", label: "Ordre d'affichage", widget: "number", value_type: "int", default: 0 }
+              - name: "category"
+                label: "Catégorie (filtre)"
+                widget: "select"
+                options: ["stage", "screen", "studio"]
+              - { name: "cat_en", label: "Sous-titre catégorie (EN)", widget: "string", hint: "ex: Stage · Residency" }
+              - { name: "cat_es", label: "Sous-titre catégorie (ES)", widget: "string" }
+              - { name: "title_en", label: "Titre (EN)", widget: "string" }
+              - { name: "title_es", label: "Titre (ES)", widget: "string" }
+              - { name: "role_en", label: "Rôle (EN)", widget: "string" }
+              - { name: "role_es", label: "Rôle (ES)", widget: "string" }
+              - { name: "loc_en", label: "Lieu (EN)", widget: "string" }
+              - { name: "loc_es", label: "Lieu (ES)", widget: "string" }
+              - { name: "year", label: "Année", widget: "string" }
+              - { name: "disc_en", label: "Discipline (EN)", widget: "string" }
+              - { name: "disc_es", label: "Discipline (ES)", widget: "string" }
+              - { name: "desc_en", label: "Description (EN)", widget: "text" }
+              - { name: "desc_es", label: "Description (ES)", widget: "text" }
+              - { name: "card_media", label: "Média de la vignette (galerie)", widget: "file" }
+              - { name: "card_is_video", label: "La vignette est une vidéo ?", widget: "boolean", default: false }
+              - { name: "card_poster", label: "Poster de la vidéo vignette (si vidéo)", widget: "file", required: false }
+              - { name: "card_w", label: "Largeur px (proportions vignette)", widget: "number", value_type: "int", default: 1200 }
+              - { name: "card_h", label: "Hauteur px (proportions vignette)", widget: "number", value_type: "int", default: 1500 }
+              - { name: "hero_media", label: "Média principal de la fiche", widget: "file" }
+              - { name: "hero_is_video", label: "Le média principal est une vidéo ?", widget: "boolean", default: false }
+              - { name: "hero_poster", label: "Poster du média principal (si vidéo)", widget: "file", required: false }
+              - name: "gallery"
+                label: "Galerie de la fiche"
+                widget: "list"
+                field: { name: "image", label: "Image / vidéo", widget: "file" }
