@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RHY — Guadalupe Sánchez · Dancer</title>
+<!--
+  STYLE B — CINEMATIC / FULLSCREEN · Portfolio RHY (Guadalupe Sánchez). Bilingue EN/ES.
+  AJOUTER MÉDIAS : remplace <div class="ph"></div> par
+     <img src="photos/nom.jpg" alt="">  ou  <video src="videos/clip.mp4" autoplay muted loop playsinline></video>
+  Le HERO est prévu pour une VIDÉO plein écran.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#e8e8e8;--bg:#050505;--grey:#7d7d7d;--line:#1e1e1e}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  img,video{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1) brightness(.9)}
+  .serif{font-family:'Cormorant Garamond',serif}
+  .ph{width:100%;height:100%;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#242424 0%,#0a0a0a 70%)}
+  .ph[data-label]::before{content:attr(data-label);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.25);font-size:11px;letter-spacing:.32em;text-transform:uppercase;text-align:center;padding:16px}
+  .ph::after{content:"";position:absolute;inset:0;opacity:.1;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:24px 40px;font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+  nav .logo{font-family:'Cormorant Garamond',serif;font-size:24px;letter-spacing:.4em;text-transform:none}
+  nav .r{display:flex;gap:26px;align-items:center}
+  nav a{opacity:.7;transition:.3s}nav a:hover{opacity:1}
+  .lang{cursor:pointer;border:1px solid #333;padding:5px 11px;border-radius:20px;font-size:10px}
+  .hero{height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden}
+  .hero .bg{position:absolute;inset:0;z-index:0}
+  .hero .bg::before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.15) 45%,rgba(0,0,0,.4) 100%)}
+  .hero .inner{position:relative;z-index:3;padding:0 40px 60px;width:100%}
+  .hero .kick{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:#bcbcbc;margin-bottom:20px}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(80px,20vw,320px);line-height:.8;letter-spacing:.02em}
+  .hero .name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.6vw,32px);color:#cfcfcf;margin-top:14px}
+  .hero .scroll{position:absolute;right:40px;bottom:60px;z-index:4;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#999;writing-mode:vertical-rl}
+  .section{padding:140px 40px;max-width:1300px;margin:0 auto}
+  .lbl{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--grey);margin-bottom:40px;display:flex;gap:14px;align-items:center}
+  .lbl::before{content:"";width:40px;height:1px;background:var(--grey)}
+  .statement{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,5vw,74px);line-height:1.12;max-width:16ch}
+  .statement em{font-style:italic;color:#fff}
+  .cols{display:grid;grid-template-columns:1.3fr 1fr;gap:70px;margin-top:60px;align-items:start}
+  .cols p{color:#b5b5b5;font-size:15px;line-height:1.8;margin-bottom:18px;max-width:52ch}
+  .facts{border-top:1px solid var(--line)}
+  .facts .f{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.06em;gap:16px}
+  .facts .f span:first-child{color:var(--grey);text-transform:uppercase;letter-spacing:.16em;font-size:10px;white-space:nowrap}
+  .facts .f span:last-child{text-align:right}
+  .strip{height:90vh;position:relative;margin:0}
+  .strip .cap{position:absolute;left:40px;bottom:40px;z-index:3;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:#eaeaea;text-shadow:0 2px 20px #000}
+  .duo{display:grid;grid-template-columns:1fr 1fr;height:80vh}
+  .trio{display:grid;grid-template-columns:1fr 1fr 1fr;height:70vh;gap:0}
+  .expcat{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#fff;margin:40px 0 6px;opacity:.9}
+  .exp .row{display:grid;grid-template-columns:120px 1fr auto;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .exp .yr{color:var(--grey);font-size:13px}
+  .exp .ti{font-family:'Cormorant Garamond',serif;font-size:28px;color:#fff}
+  .exp .ti small{display:block;font-family:'Space Grotesk',sans-serif;font-size:12px;color:var(--grey);margin-top:5px;letter-spacing:.02em}
+  .exp .ro{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);text-align:right}
+  .contact{text-align:center;padding:160px 40px}
+  .contact h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(50px,11vw,160px);line-height:.9}
+  .contact a.mail{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3vw,40px);border-bottom:1px solid #444;display:inline-block;margin-top:24px}
+  .contact .soc{margin-top:40px;display:flex;gap:30px;justify-content:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);flex-wrap:wrap}
+  footer{padding:40px;text-align:center;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#555;border-top:1px solid var(--line)}
+  @media(max-width:820px){
+    nav .r a{display:none}
+    .cols{grid-template-columns:1fr;gap:36px}
+    .duo,.trio{grid-template-columns:1fr;height:auto}.duo>div,.trio>div{height:70vh}
+    .exp .row{grid-template-columns:80px 1fr}.exp .ro{display:none}
+    .section{padding:90px 22px}nav{padding:16px 20px}.hero .inner{padding:0 22px 40px}
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="#top" class="logo">RHY</a>
+  <div class="r">
+    <a href="#about" data-en="About" data-es="Sobre mí">About</a>
+    <a href="#reel" data-en="Reel" data-es="Reel">Reel</a>
+    <a href="#exp" data-en="Experience" data-es="Trayectoria">Experience</a>
+    <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+    <span class="lang" onclick="toggleLang()">EN / ES</span>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="bg"><div class="ph" data-label="VIDÉO PLEIN ÉCRAN — le clip le plus fort (autoplay muet en boucle)"></div></div>
+  <div class="inner">
+    <div class="kick" data-en="International Commercial & Contemporary Dancer" data-es="Bailarina comercial y contemporánea internacional">International Commercial & Contemporary Dancer</div>
+    <h1>RHY</h1>
+    <div class="name">Guadalupe Sánchez — Madrid</div>
+  </div>
+  <div class="scroll" data-en="Scroll" data-es="Desliza">Scroll</div>
+</section>
+
+<section class="section">
+  <div class="lbl"><span data-en="Statement" data-es="Manifiesto">Statement</span></div>
+  <p class="statement serif"><em data-en="“I look at fear" data-es="“Miro al miedo">“I look at fear</em> <span data-en="with courage.”" data-es="con coraje.”">with courage.”</span></p>
+</section>
+
+<div class="strip">
+  <div class="ph" data-label="PHOTO PANORAMIQUE — mouvement large, plein écran"></div>
+  <div class="cap" data-en="creating art through movement" data-es="creando arte a través del movimiento">creating art through movement</div>
+</div>
+
+<section class="section" id="about">
+  <div class="lbl"><span data-en="About" data-es="Sobre mí">About</span></div>
+  <div class="cols">
+    <div>
+      <p data-en="RHY — Guadalupe Sánchez — is a Madrid-born dancer from Vallekas, specializing in high-octane commercial choreography, elite nightlife entertainment and intense contemporary floorwork." data-es="RHY — Guadalupe Sánchez — es bailarina madrileña de Vallekas, especializada en coreografía comercial de alta intensidad, entretenimiento nocturno de élite y floorwork contemporáneo.">RHY — Guadalupe Sánchez — is a Madrid-born dancer from Vallekas, specializing in high-octane commercial choreography, elite nightlife entertainment and intense contemporary floorwork.</p>
+      <p data-en="Known for fusing athletic conditioning and acrobatic technique with atmospheric storytelling on camera and stage, she is cast through international agencies for residencies, festivals, dance films and music videos across Spain and Morocco." data-es="Reconocida por fusionar acondicionamiento atlético y técnica acrobática con una narrativa atmosférica en cámara y escenario, es contratada por agencias internacionales para residencias, festivales, videodanzas y videoclips entre España y Marruecos.">Known for fusing athletic conditioning and acrobatic technique with atmospheric storytelling on camera and stage, she is cast through international agencies for residencies, festivals, dance films and music videos across Spain and Morocco.</p>
+    </div>
+    <div class="facts">
+      <div class="f"><span data-en="Based" data-es="Base">Based</span><span>Madrid · Vallekas</span></div>
+      <div class="f"><span data-en="Disciplines" data-es="Disciplinas">Disciplines</span><span data-en="Commercial · Contemporary · Floorwork · Heels" data-es="Comercial · Contemporáneo · Floorwork · Tacones">Commercial · Contemporary · Floorwork · Heels</span></div>
+      <div class="f"><span data-en="Training" data-es="Formación">Training</span><span>Elite Estudio Madrid</span></div>
+      <div class="f"><span data-en="Circuits" data-es="Circuitos">Circuits</span><span data-en="Spain · Morocco" data-es="España · Marruecos">Spain · Morocco</span></div>
+      <div class="f"><span data-en="Status" data-es="Estado">Status</span><span data-en="Open to contracts" data-es="Abierta a contratos">Open to contracts</span></div>
+      <div class="f"><span>Instagram</span><span>@rhyllow</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="duo" id="reel">
+  <div class="ph" data-label="PHOTO — verticale"></div>
+  <div class="ph" data-label="VIDÉO — clip vertical"></div>
+</div>
+
+<section class="section exp" id="exp">
+  <div class="lbl"><span data-en="Selected Experience" data-es="Trayectoria seleccionada">Selected Experience</span></div>
+
+  <div class="expcat" data-en="International — Morocco (luxury circuit)" data-es="Internacional — Marruecos (circuito de lujo)">International — Morocco (luxury circuit)</div>
+  <div class="row"><span class="yr">2024—26</span><span class="ti">Palais Dar Soukkar — Marrakech<small data-en="Residency · international dinner-show troupe, w/ acrobats & live musicians" data-es="Residencia · troupe internacional de cena-espectáculo, con acróbatas y músicos en directo">Residency · international dinner-show troupe, w/ acrobats & live musicians</small></span><span class="ro" data-en="Performer" data-es="Intérprete">Performer</span></div>
+  <div class="row"><span class="yr">2024—26</span><span class="ti">Casa Emma — Rabat<small data-en="Resident lounge artist · sleek heels & contemporary routines" data-es="Artista residente de lounge · tacones y rutinas contemporáneas">Resident lounge artist · sleek heels & contemporary routines</small></span><span class="ro" data-en="Performer" data-es="Intérprete">Performer</span></div>
+  <div class="row"><span class="yr">2025</span><span class="ti">Nostalgia Lovers Festival — Morocco<small data-en="Festival cast · via AI Dance Agency" data-es="Casting de festival · vía AI Dance Agency">Festival cast · via AI Dance Agency</small></span><span class="ro" data-en="Festival" data-es="Festival">Festival</span></div>
+  <div class="row"><span class="yr">—</span><span class="ti" data-en="Music video — Snor (rapper)" data-es="Videoclip — Snor (rapero)">Music video — Snor (rapper)<small data-en="Lead / main character · filmed in Morocco" data-es="Protagonista · rodado en Marruecos">Lead / main character · filmed in Morocco</small></span><span class="ro" data-en="Film" data-es="Film">Film</span></div>
+  <div class="row"><span class="yr">—</span><span class="ti">Skipline Productions — Rabat<small data-en="Commercial dance films · Quartier Hassan rooftop" data-es="Videodanzas comerciales · azotea Quartier Hassan">Commercial dance films · Quartier Hassan rooftop</small></span><span class="ro" data-en="Dance film" data-es="Videodanza">Dance film</span></div>
+
+  <div class="expcat" data-en="Spain — Madrid" data-es="España — Madrid">Spain — Madrid</div>
+  <div class="row"><span class="yr">2023—26</span><span class="ti">Shôko Madrid<small data-en="Core commercial performer · incl. Crazy Michael Jackson Tribute" data-es="Bailarina comercial principal · incl. Crazy Tributo a Michael Jackson">Core commercial performer · incl. Crazy Michael Jackson Tribute</small></span><span class="ro" data-en="Resident" data-es="Residente">Resident</span></div>
+  <div class="row"><span class="yr">2025</span><span class="ti" data-en="Three Kings Parade — Comunidad de Madrid" data-es="Cabalgata de Reyes — Comunidad de Madrid">Three Kings Parade — Comunidad de Madrid<small data-en="Televised large-scale public performance" data-es="Gran espectáculo público televisado">Televised large-scale public performance</small></span><span class="ro" data-en="Performer" data-es="Intérprete">Performer</span></div>
+  <div class="row"><span class="yr">—</span><span class="ti">Rawr Studio Madrid<small data-en="Open classes · teaching floorwork & commercial" data-es="Clases abiertas · floorwork y comercial">Open classes · teaching floorwork & commercial</small></span><span class="ro" data-en="Teacher" data-es="Profesora">Teacher</span></div>
+  <div class="row"><span class="yr">—</span><span class="ti" data-en="Collaborations · Pablo Brotons · Luix Cabeza · Leslie Delage" data-es="Colaboraciones · Pablo Brotons · Luix Cabeza · Leslie Delage">Collaborations · Pablo Brotons · Luix Cabeza · Leslie Delage<small data-en="Movement / film projects" data-es="Proyectos de movimiento / film">Movement / film projects</small></span><span class="ro" data-en="Artist" data-es="Artista">Artist</span></div>
+</section>
+
+<div class="trio">
+  <div class="ph" data-label="PHOTO"></div>
+  <div class="ph" data-label="PHOTO"></div>
+  <div class="ph" data-label="PHOTO"></div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="lbl" style="justify-content:center"><span data-en="Booking" data-es="Contratación">Booking</span></div>
+  <h2 data-en="Work with me" data-es="Trabaja conmigo">Work with me</h2>
+  <a class="mail" href="mailto:booking@rhyllow.dance">booking@rhyllow.dance</a>
+  <div class="soc">
+    <a href="https://instagram.com/rhyllow" target="_blank">Instagram @rhyllow</a>
+    <span data-en="Music video · Residency · Festival · TV · Masterclass" data-es="Videoclip · Residencia · Festival · TV · Masterclass">Music video · Residency · Festival · TV · Masterclass</span>
+    <span>Madrid, ES</span>
+  </div>
+</section>
+
+<footer>© 2026 RHY — Guadalupe Sánchez</footer>
+
+<script>
+  let es=false;
+  function toggleLang(){
+    es=!es;
+    document.querySelectorAll('[data-en]').forEach(el=>{el.innerHTML= es?el.getAttribute('data-es'):el.getAttribute('data-en');});
+    document.documentElement.lang=es?'es':'en';
+    document.querySelectorAll('.lang').forEach(l=>l.textContent=es?'ES / EN':'EN / ES');
+  }
+</script>
+</body>
+</html>

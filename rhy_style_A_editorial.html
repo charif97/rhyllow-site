@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RHY — Guadalupe Sánchez · Dancer</title>
+<!--
+  STYLE A — EDITORIAL / FASHION · Portfolio RHY (Guadalupe Sánchez). Bilingue EN/ES.
+  AJOUTER MÉDIAS : remplace <div class="ph">...</div> par
+     <img src="photos/nom.jpg" alt="">  ou  <video src="videos/clip.mp4" autoplay muted loop playsinline></video>
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0d0d0d;--paper:#f4f2ee;--grey:#8a877f;--line:#c9c5bc}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Archivo',sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  img,video{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:22px 40px;mix-blend-mode:difference;color:#fff}
+  nav .logo{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:.35em}
+  nav .links{display:flex;gap:28px;font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+  nav .links a{opacity:.8;transition:opacity .3s}nav .links a:hover{opacity:1}
+  .lang{cursor:pointer;border:1px solid rgba(255,255,255,.5);padding:4px 10px;border-radius:20px;font-size:10px;letter-spacing:.18em}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+  header{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:end;padding:120px 40px 60px;gap:40px;position:relative}
+  .hero-type{position:relative;z-index:2}
+  .kicker{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--grey);margin-bottom:24px}
+  .hero-name{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(64px,12vw,180px);line-height:.86;letter-spacing:-.01em}
+  .hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,2.4vw,34px);color:#2a2a2a;margin-top:18px}
+  .hero-meta{margin-top:34px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);display:flex;gap:26px;flex-wrap:wrap}
+  .hero-img{height:74vh;position:relative}
+  .hero-tag{position:absolute;bottom:-30px;left:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--grey)}
+  .ph{width:100%;height:100%;position:relative;overflow:hidden;background:linear-gradient(135deg,#3a3a3a 0%,#111 45%,#2c2c2c 100%)}
+  .ph::before{content:attr(data-label);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.32);font-size:11px;letter-spacing:.3em;text-transform:uppercase;text-align:center;padding:12px}
+  .ph::after{content:"";position:absolute;inset:0;opacity:.14;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  section{padding:120px 0;border-top:1px solid var(--line)}
+  .sec-index{font-size:11px;letter-spacing:.3em;color:var(--grey);text-transform:uppercase;margin-bottom:40px;display:flex;justify-content:space-between}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .about-grid h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,4.5vw,64px);line-height:1.05}
+  .about-grid .lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:#333;margin:0 0 26px}
+  .about-grid p{font-size:15px;color:#333;margin-bottom:18px;max-width:48ch}
+  .facts2{margin-top:24px;border-top:1px solid var(--line)}
+  .facts2 .r{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.05em;gap:16px}
+  .facts2 .r span:first-child{color:var(--grey);text-transform:uppercase;letter-spacing:.14em;font-size:10px;white-space:nowrap}
+  .facts2 .r span:last-child{text-align:right}
+  .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(28px,4vw,52px);line-height:1.15;margin-top:60px}
+  .expcat{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--grey);margin:44px 0 4px}
+  .exp-row{display:grid;grid-template-columns:96px 1fr auto;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .exp-row .yr{font-size:13px;color:var(--grey);letter-spacing:.1em}
+  .exp-row .ti{font-family:'Cormorant Garamond',serif;font-size:26px}
+  .exp-row .ti small{display:block;font-family:'Archivo',sans-serif;font-size:12px;color:var(--grey);margin-top:4px;letter-spacing:.02em}
+  .exp-row .ro{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);text-align:right}
+  .gal{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;grid-auto-rows:minmax(60px,auto)}
+  .gal .cell{position:relative;overflow:hidden}
+  .g1{grid-column:1/6;aspect-ratio:3/4}
+  .g2{grid-column:6/13;aspect-ratio:16/10;align-self:end}
+  .g3{grid-column:1/5;aspect-ratio:1/1;margin-top:40px}
+  .g4{grid-column:5/9;aspect-ratio:3/4}
+  .g5{grid-column:9/13;aspect-ratio:3/4;margin-top:70px}
+  .cap{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--grey);margin-top:10px}
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
+  .contact h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(40px,7vw,120px);line-height:.9}
+  .contact a.mail{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;border-bottom:1px solid var(--ink);display:inline-block;margin-top:20px}
+  .contact .soc{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);display:flex;flex-direction:column;gap:12px;text-align:right}
+  footer{padding:40px;text-align:center;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--grey);border-top:1px solid var(--line)}
+  @media(max-width:820px){
+    header{grid-template-columns:1fr;padding-top:100px}
+    .hero-img{height:52vh;order:-1}
+    .about-grid,.contact{grid-template-columns:1fr;gap:36px}
+    .gal .cell{grid-column:1/13 !important;margin-top:0 !important}
+    .exp-row{grid-template-columns:70px 1fr}.exp-row .ro{display:none}
+    nav{padding:16px 20px}nav .links{display:none}
+    .wrap,header{padding-left:20px;padding-right:20px}
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="#top" class="logo">RHY</a>
+  <div class="links">
+    <a href="#about" data-en="About" data-es="Sobre mí">About</a>
+    <a href="#exp" data-en="Experience" data-es="Trayectoria">Experience</a>
+    <a href="#work" data-en="Work" data-es="Obra">Work</a>
+    <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+    <span class="lang" onclick="toggleLang()">EN / ES</span>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="hero-type">
+    <div class="kicker" data-en="Dancer · Commercial · Contemporary — Madrid" data-es="Bailarina · Comercial · Contemporáneo — Madrid">Dancer · Commercial · Contemporary — Madrid</div>
+    <h1 class="hero-name">RHY</h1>
+    <div class="hero-sub">Guadalupe Sánchez</div>
+    <div class="hero-meta">
+      <span>Madrid · Vallekas</span>
+      <span data-en="Available for international contracts" data-es="Disponible para contratos internacionales">Available for international contracts</span>
+      <span>@rhyllow</span>
+    </div>
+  </div>
+  <div class="hero-img">
+    <div class="ph" data-label="PORTRAIT PRINCIPAL — photo verticale"></div>
+    <div class="hero-tag">“miro al miedo con coraje”</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <section id="about">
+    <div class="sec-index"><span>01 — <span data-en="About" data-es="Sobre mí">About</span></span><span>RHY</span></div>
+    <div class="about-grid">
+      <div>
+        <h2 data-en="A body that speaks before words." data-es="Un cuerpo que habla antes que las palabras.">A body that speaks before words.</h2>
+        <div class="facts2">
+          <div class="r"><span data-en="Based" data-es="Base">Based</span><span>Madrid · Vallekas</span></div>
+          <div class="r"><span data-en="Disciplines" data-es="Disciplinas">Disciplines</span><span data-en="Contemporary · Commercial · Floorwork · Heels" data-es="Contemporáneo · Comercial · Floorwork · Tacones">Contemporary · Commercial · Floorwork · Heels</span></div>
+          <div class="r"><span data-en="Training" data-es="Formación">Training</span><span>Elite Estudio Madrid</span></div>
+          <div class="r"><span data-en="Circuits" data-es="Circuitos">Circuits</span><span data-en="Spain · Morocco" data-es="España · Marruecos">Spain · Morocco</span></div>
+          <div class="r"><span data-en="Status" data-es="Estado">Status</span><span data-en="Open to contracts" data-es="Abierta a contratos">Open to contracts</span></div>
+        </div>
+      </div>
+      <div>
+        <p class="lead" data-en="I create art through movement." data-es="Creo arte a través del movimiento.">I create art through movement.</p>
+        <p data-en="RHY — Guadalupe Sánchez — is a Madrid-based dancer from the Vallekas neighborhood, working across contemporary, commercial and floorwork. She builds an international career between Madrid's nightlife stages and Morocco's luxury dinner-show circuit, cast through international agencies for festivals, residencies, dance films and music videos." data-es="RHY — Guadalupe Sánchez — es bailarina madrileña del barrio de Vallekas, especializada en danza contemporánea, comercial y floorwork. Desarrolla una carrera internacional entre los escenarios de la noche madrileña y el circuito de cenas-espectáculo de lujo de Marruecos, contratada por agencias internacionales para festivales, residencias, videodanzas y videoclips.">RHY — Guadalupe Sánchez — is a Madrid-based dancer from the Vallekas neighborhood, working across contemporary, commercial and floorwork. She builds an international career between Madrid's nightlife stages and Morocco's luxury dinner-show circuit, cast through international agencies for festivals, residencies, dance films and music videos.</p>
+        <p data-en="Her style blends high-level floorwork, acrobatic conditioning and commercial pop choreography — physical, precise and emotionally raw. Alongside performing, she teaches open classes in Madrid." data-es="Su estilo combina floorwork de alto nivel, acondicionamiento acrobático y coreografía pop comercial — físico, preciso y emocionalmente crudo. Además de actuar, imparte clases abiertas en Madrid.">Her style blends high-level floorwork, acrobatic conditioning and commercial pop choreography — physical, precise and emotionally raw. Alongside performing, she teaches open classes in Madrid.</p>
+      </div>
+    </div>
+    <div class="quote serif" data-en="“Find what you love and let it kill you.”" data-es="“Encuentra lo que amas y deja que te mate.”">“Find what you love and let it kill you.”</div>
+  </section>
+
+  <section id="exp">
+    <div class="sec-index"><span>02 — <span data-en="Experience" data-es="Trayectoria">Experience</span></span><span data-en="Selected" data-es="Selección">Selected</span></div>
+
+    <div class="expcat" data-en="International — Morocco (luxury circuit)" data-es="Internacional — Marruecos (circuito de lujo)">International — Morocco (luxury circuit)</div>
+    <div class="exp-row"><span class="yr">2024—26</span><span class="ti">Palais Dar Soukkar — Marrakech<small data-en="Residency · international dinner-show troupe" data-es="Residencia · troupe internacional de cena-espectáculo">Residency · international dinner-show troupe</small></span><span class="ro" data-en="Performer" data-es="Intérprete">Performer</span></div>
+    <div class="exp-row"><span class="yr">2024—26</span><span class="ti">Casa Emma — Rabat<small data-en="Resident dinner-show entertainment" data-es="Entretenimiento residente de cena-espectáculo">Resident dinner-show entertainment</small></span><span class="ro" data-en="Performer" data-es="Intérprete">Performer</span></div>
+    <div class="exp-row"><span class="yr">2025</span><span class="ti">Nostalgia Lovers Festival — Morocco<small data-en="Festival cast · via AI Dance Agency" data-es="Casting de festival · vía AI Dance Agency">Festival cast · via AI Dance Agency</small></span><span class="ro" data-en="Festival" data-es="Festival">Festival</span></div>
+    <div class="exp-row"><span class="yr">—</span><span class="ti" data-en="Music video — Snor (rapper)" data-es="Videoclip — Snor (rapero)">Music video — Snor (rapper)<small data-en="Lead / main character" data-es="Protagonista">Lead / main character</small></span><span class="ro" data-en="Film" data-es="Film">Film</span></div>
+    <div class="exp-row"><span class="yr">—</span><span class="ti">Skipline Productions — Rabat<small data-en="Commercial dance films · Quartier Hassan rooftop" data-es="Videodanzas comerciales · azotea Quartier Hassan">Commercial dance films · Quartier Hassan rooftop</small></span><span class="ro" data-en="Dance film" data-es="Videodanza">Dance film</span></div>
+
+    <div class="expcat" data-en="Spain — Madrid" data-es="España — Madrid">Spain — Madrid</div>
+    <div class="exp-row"><span class="yr">2023—26</span><span class="ti">Shôko Madrid<small data-en="Commercial dancer · incl. Michael Jackson Tribute shows" data-es="Bailarina comercial · incl. shows Tributo a Michael Jackson">Commercial dancer · incl. Michael Jackson Tribute shows</small></span><span class="ro" data-en="Resident" data-es="Residente">Resident</span></div>
+    <div class="exp-row"><span class="yr">2025</span><span class="ti" data-en="Three Kings Parade — Comunidad de Madrid" data-es="Cabalgata de Reyes — Comunidad de Madrid">Three Kings Parade — Comunidad de Madrid<small data-en="Televised large-scale public performance" data-es="Gran espectáculo público televisado">Televised large-scale public performance</small></span><span class="ro" data-en="Performer" data-es="Intérprete">Performer</span></div>
+    <div class="exp-row"><span class="yr">—</span><span class="ti">Rawr Studio Madrid<small data-en="Open classes · teaching floorwork & commercial" data-es="Clases abiertas · floorwork y comercial">Open classes · teaching floorwork & commercial</small></span><span class="ro" data-en="Teacher" data-es="Profesora">Teacher</span></div>
+    <div class="exp-row"><span class="yr">—</span><span class="ti" data-en="Collaborations · Pablo Brotons · Luix Cabeza · Leslie Delage" data-es="Colaboraciones · Pablo Brotons · Luix Cabeza · Leslie Delage">Collaborations · Pablo Brotons · Luix Cabeza · Leslie Delage<small data-en="Movement / film projects" data-es="Proyectos de movimiento / film">Movement / film projects</small></span><span class="ro" data-en="Artist" data-es="Artista">Artist</span></div>
+  </section>
+
+  <section id="work">
+    <div class="sec-index"><span>03 — <span data-en="Selected Work" data-es="Obra seleccionada">Selected Work</span></span><span data-en="Photo / Film" data-es="Foto / Film">Photo / Film</span></div>
+    <div class="gal">
+      <div class="cell g1"><div class="ph" data-label="PHOTO — vertical 3:4"></div></div>
+      <div class="cell g2"><div class="ph" data-label="VIDÉO — clip 16:9 (autoplay muet)"></div></div>
+      <div class="cell g3"><div class="ph" data-label="PHOTO — carré 1:1"></div></div>
+      <div class="cell g4"><div class="ph" data-label="PHOTO — vertical 3:4"></div></div>
+      <div class="cell g5"><div class="ph" data-label="PHOTO — vertical 3:4"></div></div>
+    </div>
+    <p class="cap" data-en="Selected frames — Madrid & Morocco" data-es="Fotogramas seleccionados — Madrid y Marruecos">Selected frames — Madrid & Morocco</p>
+  </section>
+
+  <section id="contact">
+    <div class="sec-index"><span>04 — <span data-en="Contact" data-es="Contacto">Contact</span></span><span data-en="Booking" data-es="Contratación">Booking</span></div>
+    <div class="contact">
+      <div>
+        <h2 data-en="Let's<br>work." data-es="Trabajemos<br>juntos.">Let's<br>work.</h2>
+        <a class="mail" href="https://instagram.com/rhyllow" target="_blank">@rhyllow</a>
+      </div>
+      <div class="soc">
+        <a href="https://instagram.com/rhyllow" target="_blank">Instagram — @rhyllow</a>
+        <span data-en="Stage · Dinner-show · Film · Campaigns" data-es="Escena · Cena-espectáculo · Film · Campañas">Stage · Dinner-show · Film · Campaigns</span>
+        <span>Madrid, ES</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>© 2026 RHY — Guadalupe Sánchez · <span data-en="Dance Portfolio" data-es="Portafolio de danza">Dance Portfolio</span></footer>
+
+<script>
+  let es=false;
+  function toggleLang(){
+    es=!es;
+    document.querySelectorAll('[data-en]').forEach(el=>{el.innerHTML= es?el.getAttribute('data-es'):el.getAttribute('data-en');});
+    document.documentElement.lang=es?'es':'en';
+    document.querySelectorAll('.lang').forEach(l=>l.textContent=es?'ES / EN':'EN / ES');
+  }
+</script>
+</body>
+</html>

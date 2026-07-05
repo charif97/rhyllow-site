@@ -1,0 +1,72 @@
+# ─────────────────────────────────────────────────────────────
+#  RHY · Panneau admin (Sveltia / Decap CMS)
+#  Guadalupe se connecte sur  tonsite.com/admin  et édite ci-dessous.
+#  Auth via GitHub OAuth (voir le guide de déploiement).
+# ─────────────────────────────────────────────────────────────
+backend:
+  name: github
+  repo: OWNER/REPO          # ← remplacer par ton dépôt GitHub (ex: guada/rhyllow-site)
+  branch: main
+
+# Où sont uploadées les nouvelles photos/vidéos
+media_folder: "photos"
+public_folder: "photos"
+
+# Langue de l'interface admin
+locale: "fr"
+
+collections:
+  # ── 1. Coordonnées & infos du site ──────────────────────────
+  - name: "site"
+    label: "Infos & coordonnées"
+    files:
+      - name: "info"
+        label: "Coordonnées"
+        file: "content/site.json"
+        fields:
+          - { name: "email", label: "Email de booking", widget: "string" }
+          - { name: "instagram", label: "Instagram (@)", widget: "string", default: "@rhyllow" }
+          - { name: "instagram_url", label: "Lien Instagram", widget: "string", default: "https://www.instagram.com/rhyllow" }
+          - { name: "dm_url", label: "Lien message direct (DM)", widget: "string", default: "https://ig.me/m/rhyllow" }
+          - { name: "location", label: "Localisation", widget: "string", default: "Madrid · available worldwide" }
+          - { name: "bio_en", label: "Bio (EN)", widget: "text" }
+          - { name: "bio_es", label: "Bio (ES)", widget: "text" }
+
+  # ── 2. Médias de la galerie (canvas) ────────────────────────
+  - name: "gallery"
+    label: "Galerie (photos & vidéos)"
+    folder: "content/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "name_en", label: "Titre (EN)", widget: "string" }
+      - { name: "name_es", label: "Titre (ES)", widget: "string" }
+      - name: "category"
+        label: "Catégorie"
+        widget: "select"
+        options: ["stage", "screen", "studio"]
+      - { name: "media", label: "Photo ou vidéo", widget: "file" }
+      - { name: "is_video", label: "C'est une vidéo ?", widget: "boolean", default: false }
+      - { name: "order", label: "Ordre d'affichage", widget: "number", default: 1 }
+
+  # ── 3. Projets (pages « See more ») ─────────────────────────
+  - name: "projects"
+    label: "Projets"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title_en", label: "Titre (EN)", widget: "string" }
+      - { name: "title_es", label: "Titre (ES)", widget: "string" }
+      - name: "category"
+        label: "Catégorie"
+        widget: "select"
+        options: ["stage", "screen", "studio"]
+      - { name: "role", label: "Rôle", widget: "string" }
+      - { name: "location", label: "Lieu", widget: "string" }
+      - { name: "year", label: "Année", widget: "string" }
+      - { name: "discipline", label: "Discipline", widget: "string" }
+      - { name: "hero", label: "Média principal", widget: "file" }
+      - { name: "description_en", label: "Description (EN)", widget: "text" }
+      - { name: "description_es", label: "Description (ES)", widget: "text" }
+      - { name: "gallery", label: "Galerie du projet", widget: "list", field: { name: "image", label: "Image", widget: "file" } }

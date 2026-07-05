@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GUADALUPE SÁNCHEZ — RHY · Dancer & Performer</title>
+<meta name="description" content="Guadalupe Sánchez (RHY) — professional dancer & performer. Commercial, contemporary, floorwork, heels. Booking for casting directors, talent scouts & labels.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#0B0B0C',
+        surface: '#141416',
+        stark: '#FFFFFF',
+        neon: '#FFFFFF',
+        gold: '#D4AF37',
+        muted: '#8A8A90'
+      },
+      fontFamily: {
+        display: ['"Cormorant Garamond"', 'serif'],
+        sans: ['"Space Grotesk"', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #0B0B0C; }
+  ::selection { background: #FFFFFF; color: #0B0B0C; }
+  .grain::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 60; opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .ph {
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg,#161618,#0e0e10);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ph::after {
+    content: attr(data-label);
+    font-family: "Space Grotesk", sans-serif; font-size: 10px; letter-spacing: .18em;
+    text-transform: uppercase; color: #55555c; padding: 0 14px; text-align: center;
+  }
+  .ph.grayed img, .ph.grayed video { filter: grayscale(1) contrast(1.05); }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .link-underline { background-image: linear-gradient(#FFFFFF,#FFFFFF); background-size: 0% 1px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .4s ease; }
+  .link-underline:hover { background-size: 100% 1px; }
+  .masonry { column-gap: 1rem; }
+  @media (min-width:640px){ .masonry{ column-count:2; } }
+  @media (min-width:1024px){ .masonry{ column-count:3; } }
+  .masonry > * { break-inside: avoid; margin-bottom: 1rem; }
+  dialog::backdrop { background: rgba(5,5,6,.85); backdrop-filter: blur(4px); }
+</style>
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
+</head>
+<body class="grain font-sans text-stark antialiased">
+
+<!-- ============ NAV ============ -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-ink/70 border-b border-white/5">
+  <nav class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="#top" class="font-display text-2xl tracking-wide">RHY<span class="text-neon">.</span></a>
+    <div class="hidden md:flex items-center gap-8 text-xs tracking-[.15em] uppercase text-muted">
+      <a href="#about" class="link-underline hover:text-stark" data-en="About" data-es="Perfil">About</a>
+      <a href="#reel" class="link-underline hover:text-stark" data-en="Reel" data-es="Reel">Reel</a>
+      <a href="#experience" class="link-underline hover:text-stark" data-en="Experience" data-es="Trayectoria">Experience</a>
+      <a href="#gallery" class="link-underline hover:text-stark" data-en="Gallery" data-es="Galería">Gallery</a>
+      <a href="#booking" class="link-underline hover:text-stark" data-en="Booking" data-es="Contratación">Booking</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <button onclick="toggleLang()" class="lang text-[11px] tracking-[.2em] uppercase text-muted hover:text-gold border border-white/10 rounded-full px-3 py-1 transition">EN / ES</button>
+      <a href="#booking" class="hidden sm:inline-block text-[11px] tracking-[.2em] uppercase bg-neon text-ink hover:bg-neon/80 rounded-full px-4 py-1.5 transition" data-en="Book" data-es="Reservar">Book</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="relative min-h-screen flex items-end overflow-hidden">
+  <div class="ph grayed absolute inset-0">
+    <video src="videos/hero.mp4" autoplay muted loop playsinline class="w-full h-full object-cover"></video>
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/60"></div>
+  <div class="relative z-10 max-w-6xl mx-auto w-full px-5 sm:px-8 pb-20 sm:pb-28">
+    <p class="text-gold text-xs tracking-[.35em] uppercase mb-5" data-en="Dancer · Performer · Movement Artist" data-es="Bailarina · Intérprete · Artista del movimiento">Dancer · Performer · Movement Artist</p>
+    <h1 class="font-display leading-[0.9] text-6xl sm:text-8xl lg:text-9xl">
+      GUADALUPE<br><span class="italic text-neon">Sánchez</span>
+    </h1>
+    <p class="mt-6 max-w-xl text-muted text-base sm:text-lg" data-en="Madrid-based dancer working across the luxury performance circuit — from Marrakech residencies to Spanish stages. Commercial, contemporary, floorwork &amp; heels." data-es="Bailarina afincada en Madrid en el circuito de espectáculo de alta gama — de residencias en Marrakech a escenarios españoles. Comercial, contemporáneo, floorwork y heels.">Madrid-based dancer working across the luxury performance circuit — from Marrakech residencies to Spanish stages. Commercial, contemporary, floorwork &amp; heels.</p>
+    <div class="mt-9 flex flex-wrap gap-4">
+      <a href="#booking" class="bg-neon hover:bg-neon/80 text-ink text-xs tracking-[.2em] uppercase px-7 py-3.5 rounded-full transition" data-en="Secure Booking" data-es="Reservar contratación">Secure Booking</a>
+      <button onclick="document.getElementById('reelModal').showModal()" class="border border-gold/60 text-gold hover:bg-gold hover:text-ink text-xs tracking-[.2em] uppercase px-7 py-3.5 rounded-full transition" data-en="Watch Reel" data-es="Ver reel">Watch Reel</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="border-y border-white/5 py-4 overflow-hidden whitespace-nowrap text-muted/70 text-xs tracking-[.3em] uppercase">
+  <span class="inline-block animate-[scroll_28s_linear_infinite]">
+    Dar Soukkar Marrakech · Casa Emma Rabat · Shôko Madrid · Nostalgia Lovers Festival · Cabalgata de Reyes · Snor Music Video · Skipline Productions · Rawr Studio · &nbsp;
+    Dar Soukkar Marrakech · Casa Emma Rabat · Shôko Madrid · Nostalgia Lovers Festival · Cabalgata de Reyes · Snor Music Video · Skipline Productions · Rawr Studio · &nbsp;
+  </span>
+</div>
+<style>@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}</style>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="max-w-6xl mx-auto px-5 sm:px-8 py-24 sm:py-32 grid lg:grid-cols-12 gap-12">
+  <div class="lg:col-span-4 reveal">
+    <div class="ph grayed aspect-[3/4] rounded-sm"><img src="photos/portrait.jpg" alt="Guadalupe Sánchez — RHY" class="w-full h-full object-cover"></div>
+  </div>
+  <div class="lg:col-span-8 reveal">
+    <p class="text-gold text-xs tracking-[.35em] uppercase mb-6" data-en="About" data-es="Perfil">About</p>
+    <h2 class="font-display text-4xl sm:text-5xl leading-tight mb-8">
+      <span data-en="Movement with intention. Presence that carries a room." data-es="Movimiento con intención. Una presencia que llena la sala.">Movement with intention. Presence that carries a room.</span>
+    </h2>
+    <p class="text-muted leading-relaxed mb-5" data-en="Guadalupe Sánchez — known on stage as RHY — is a professional dancer whose work spans the luxury hospitality circuit, live events, music video and festival stages. Her range moves fluidly between commercial energy, contemporary depth, grounded floorwork and heels." data-es="Guadalupe Sánchez — RHY sobre el escenario — es bailarina profesional cuyo trabajo abarca el circuito de hostelería de lujo, eventos en directo, videoclip y festivales. Su registro transita con fluidez entre la energía comercial, la profundidad contemporánea, el floorwork y los heels.">Guadalupe Sánchez — known on stage as RHY — is a professional dancer whose work spans the luxury hospitality circuit, live events, music video and festival stages. Her range moves fluidly between commercial energy, contemporary depth, grounded floorwork and heels.</p>
+    <p class="text-muted leading-relaxed mb-10" data-en="From residencies at Palais Dar Soukkar in Marrakech to the stages of Madrid, she brings a cinematic physicality and a fearless approach to performance — &laquo;miro al miedo con coraje&raquo;." data-es="De residencias en el Palais Dar Soukkar de Marrakech a los escenarios de Madrid, aporta una fisicidad cinematográfica y una entrega sin miedo — &laquo;miro al miedo con coraje&raquo;.">From residencies at Palais Dar Soukkar in Marrakech to the stages of Madrid, she brings a cinematic physicality and a fearless approach to performance — &laquo;miro al miedo con coraje&raquo;.</p>
+    <div class="flex flex-wrap gap-2.5">
+      <span class="border border-white/10 text-muted text-[11px] tracking-[.15em] uppercase px-4 py-2 rounded-full">Commercial</span>
+      <span class="border border-white/10 text-muted text-[11px] tracking-[.15em] uppercase px-4 py-2 rounded-full">Contemporary</span>
+      <span class="border border-white/10 text-muted text-[11px] tracking-[.15em] uppercase px-4 py-2 rounded-full">Floorwork</span>
+      <span class="border border-white/10 text-muted text-[11px] tracking-[.15em] uppercase px-4 py-2 rounded-full">Heels</span>
+      <span class="border border-white/10 text-muted text-[11px] tracking-[.15em] uppercase px-4 py-2 rounded-full">Acrobatic conditioning</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOWREEL ============ -->
+<section id="reel" class="max-w-6xl mx-auto px-5 sm:px-8 pb-24 sm:pb-32">
+  <div class="reveal relative rounded-lg overflow-hidden border border-white/10 group cursor-pointer" onclick="document.getElementById('reelModal').showModal()">
+    <div class="ph grayed aspect-video"><img src="photos/reel-cover.jpg" alt="Showreel" class="w-full h-full object-cover"></div>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="w-20 h-20 rounded-full bg-neon/90 flex items-center justify-center group-hover:scale-110 transition">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="#0B0B0C"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <div class="absolute bottom-0 inset-x-0 p-6 sm:p-8 bg-gradient-to-t from-ink to-transparent">
+      <p class="text-gold text-xs tracking-[.3em] uppercase mb-1" data-en="Showreel 2026" data-es="Showreel 2026">Showreel 2026</p>
+      <p class="font-display text-2xl sm:text-3xl" data-en="Selected performances &amp; movement" data-es="Actuaciones y movimiento seleccionados">Selected performances &amp; movement</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience" class="border-t border-white/5 py-24 sm:py-32">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <p class="text-gold text-xs tracking-[.35em] uppercase mb-4 reveal" data-en="Experience" data-es="Trayectoria">Experience</p>
+    <h2 class="font-display text-4xl sm:text-6xl mb-16 reveal" data-en="Selected work" data-es="Trabajo seleccionado">Selected work</h2>
+
+    <!-- Morocco -->
+    <h3 class="text-muted text-xs tracking-[.25em] uppercase mb-8 reveal" data-en="International — Morocco · luxury circuit" data-es="Internacional — Marruecos · circuito de lujo">International — Morocco · luxury circuit</h3>
+    <div class="space-y-px mb-16">
+      <article class="reveal group grid sm:grid-cols-12 gap-3 sm:gap-6 items-baseline py-6 border-b border-white/5 hover:bg-surface/40 px-3 -mx-3 rounded transition">
+        <div class="sm:col-span-4 font-display text-2xl group-hover:text-neon transition">Palais Dar Soukkar</div>
+        <div class="sm:col-span-5 text-muted text-sm" data-en="Resident performer — luxury dinner-show residency, Marrakech." data-es="Intérprete residente — residencia de cena-espectáculo de lujo, Marrakech.">Resident performer — luxury dinner-show residency, Marrakech.</div>
+        <div class="sm:col-span-3 text-muted/60 text-xs tracking-[.15em] uppercase text-right">Marrakech</div>
+      </article>
+      <article class="reveal group grid sm:grid-cols-12 gap-3 sm:gap-6 items-baseline py-6 border-b border-white/5 hover:bg-surface/40 px-3 -mx-3 rounded transition">
+        <div class="sm:col-span-4 font-display text-2xl group-hover:text-neon transition">Casa Emma</div>
+        <div class="sm:col-span-5 text-muted text-sm" data-en="Resident performer — dinner-show residency, Rabat." data-es="Intérprete residente — residencia de cena-espectáculo, Rabat.">Resident performer — dinner-show residency, Rabat.</div>
+        <div class="sm:col-span-3 text-muted/60 text-xs tracking-[.15em] uppercase text-right">Rabat</div>
+      </article>
+      <article class="reveal group grid sm:grid-cols-12 gap-3 sm:gap-6 items-baseline py-6 border-b border-white/5 hover:bg-surface/40 px-3 -mx-3 rounded transition">
+        <div class="sm:col-span-4 font-display text-2xl group-hover:text-neon transition">Nostalgia Lovers Festival</div>
+        <div class="sm:col-span-5 text-muted text-sm" data-en="Festival performer — AI Dance Agency." data-es="Intérprete de festival — AI Dance Agency.">Festival performer — AI Dance Agency.</div>
+        <div class="sm:col-span-3 text-muted/60 text-xs tracking-[.15em] uppercase text-right">Morocco</div>
+      </article>
+      <article class="reveal group grid sm:grid-cols-12 gap-3 sm:gap-6 items-baseline py-6 border-b border-white/5 hover:bg-surface/40 px-3 -mx-3 rounded transition">
+        <div class="sm:col-span-4 font-display text-2xl group-hover:text-neon transition">Snor — Music Video</div>
+        <div class="sm:col-span-5 text-muted text-sm" data-en="Lead / main character in Moroccan rapper Snor's music video." data-es="Protagonista en el videoclip del rapero marroquí Snor.">Lead / main character in Moroccan rapper Snor's music video.</div>
+        <div class="sm:col-span-3 text-muted/60 text-xs tracking-[.15em] uppercase text-right">Screen</div>
+      </article>
+      <article class="reveal group grid sm:grid-cols-12 gap-3 sm:gap-6 items-baseline py-6 border-b border-white/5 hover:bg-surface/40 px-3 -mx-3 rounded transition">
+        <div class="sm:col-span-4 font-display text-2xl group-hover:text-neon transition">Skipline Productions</div>
+        <div class="sm:col-span-5 text-muted text-sm" data-en="Performer — Rabat, Quartier Hassan." data-es="Intérprete — Rabat, Quartier Hassan.">Performer — Rabat, Quartier Hassan.</div>
+        <div class="sm:col-span-3 text-muted/60 text-xs tracking-[.15em] uppercase text-right">Rabat</div>
+      </article>
+    </div>
+
+    <!-- Spain -->
+    <h3 class="text-muted text-xs tracking-[.25em] uppercase mb-8 reveal" data-en="Spain — Madrid" data-es="España — Madrid">Spain — Madrid</h3>
+    <div class="space-y-px">
+      <article class="reveal group grid sm:grid-cols-12 gap-3 sm:gap-6 items-baseline py-6 border-b border-white/5 hover:bg-surface/40 px-3 -mx-3 rounded transition">
+        <div class="sm:col-span-4 font-display text-2xl group-hover:text-neon transition">Shôko Madrid</div>
+        <div class="sm:col-span-5 text-muted text-sm" data-en="Performer — flagship club &amp; live venue." data-es="Intérprete — club y sala de directo de referencia.">Performer — flagship club &amp; live venue.</div>
+        <div class="sm:col-span-3 text-muted/60 text-xs tracking-[.15em] uppercase text-right">Madrid</div>
+      </article>
+      <article class="reveal group grid sm:grid-cols-12 gap-3 sm:gap-6 items-baseline py-6 border-b border-white/5 hover:bg-surface/40 px-3 -mx-3 rounded transition">
+        <div class="sm:col-span-4 font-display text-2xl group-hover:text-neon transition">Cabalgata de Reyes</div>
+        <div class="sm:col-span-5 text-muted text-sm" data-en="Three Kings Parade — Comunidad de Madrid." data-es="Cabalgata de Reyes — Comunidad de Madrid.">Three Kings Parade — Comunidad de Madrid.</div>
+        <div class="sm:col-span-3 text-muted/60 text-xs tracking-[.15em] uppercase text-right">Madrid</div>
+      </article>
+      <article class="reveal group grid sm:grid-cols-12 gap-3 sm:gap-6 items-baseline py-6 border-b border-white/5 hover:bg-surface/40 px-3 -mx-3 rounded transition">
+        <div class="sm:col-span-4 font-display text-2xl group-hover:text-neon transition">Rawr Studio Madrid</div>
+        <div class="sm:col-span-5 text-muted text-sm" data-en="Teaching &amp; choreography." data-es="Docencia y coreografía.">Teaching &amp; choreography.</div>
+        <div class="sm:col-span-3 text-muted/60 text-xs tracking-[.15em] uppercase text-right">Madrid</div>
+      </article>
+      <article class="reveal group grid sm:grid-cols-12 gap-3 sm:gap-6 items-baseline py-6 border-b border-white/5 hover:bg-surface/40 px-3 -mx-3 rounded transition">
+        <div class="sm:col-span-4 font-display text-2xl group-hover:text-neon transition">Collaborations</div>
+        <div class="sm:col-span-5 text-muted text-sm" data-en="Pablo Brotons, Luix Cabeza, Leslie Delage &amp; more." data-es="Pablo Brotons, Luix Cabeza, Leslie Delage y más.">Pablo Brotons, Luix Cabeza, Leslie Delage &amp; more.</div>
+        <div class="sm:col-span-3 text-muted/60 text-xs tracking-[.15em] uppercase text-right">Madrid</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery" class="max-w-6xl mx-auto px-5 sm:px-8 py-24 sm:py-32">
+  <p class="text-gold text-xs tracking-[.35em] uppercase mb-4 reveal" data-en="Gallery" data-es="Galería">Gallery</p>
+  <h2 class="font-display text-4xl sm:text-6xl mb-14 reveal" data-en="In frame" data-es="En cuadro">In frame</h2>
+  <div class="masonry reveal">
+    <div class="ph grayed rounded-sm"><img src="photos/editorial-3.jpg" alt="RHY — studio leap" class="w-full rounded-sm"></div>
+    <div class="ph grayed rounded-sm"><img src="photos/g1.jpg" alt="RHY" class="w-full rounded-sm"></div>
+    <div class="ph grayed rounded-sm"><img src="photos/g2.jpg" alt="RHY" class="w-full rounded-sm"></div>
+    <div class="ph grayed rounded-sm"><img src="photos/g3.jpg" alt="RHY" class="w-full rounded-sm"></div>
+    <div class="ph grayed rounded-sm"><img src="photos/editorial-4.jpg" alt="RHY — studio floorwork" class="w-full rounded-sm"></div>
+    <div class="ph grayed rounded-sm"><img src="photos/g4.jpg" alt="RHY" class="w-full rounded-sm"></div>
+    <div class="ph grayed rounded-sm"><img src="photos/g5.jpg" alt="RHY" class="w-full rounded-sm"></div>
+    <div class="ph grayed rounded-sm"><img src="photos/g6.jpg" alt="RHY" class="w-full rounded-sm"></div>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM ============ -->
+<section class="border-y border-white/5 py-20">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="flex items-end justify-between mb-10 reveal">
+      <div>
+        <p class="text-gold text-xs tracking-[.35em] uppercase mb-3" data-en="Live" data-es="En directo">Live</p>
+        <h2 class="font-display text-3xl sm:text-4xl">@rhyllow</h2>
+      </div>
+      <a href="https://www.instagram.com/rhyllow" target="_blank" rel="noopener" class="text-neon text-xs tracking-[.2em] uppercase link-underline" data-en="Follow →" data-es="Seguir →">Follow →</a>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 reveal">
+      <a href="https://www.instagram.com/rhyllow" target="_blank" rel="noopener" class="ph grayed aspect-square rounded-sm block"><img src="photos/ig1.jpg" alt="@rhyllow" class="w-full h-full object-cover"></a>
+      <a href="https://www.instagram.com/rhyllow" target="_blank" rel="noopener" class="ph grayed aspect-square rounded-sm block"><img src="photos/ig2.jpg" alt="@rhyllow" class="w-full h-full object-cover"></a>
+      <a href="https://www.instagram.com/rhyllow" target="_blank" rel="noopener" class="ph grayed aspect-square rounded-sm block"><img src="photos/ig3.jpg" alt="@rhyllow" class="w-full h-full object-cover"></a>
+      <a href="https://www.instagram.com/rhyllow" target="_blank" rel="noopener" class="ph grayed aspect-square rounded-sm block"><img src="photos/ig4.jpg" alt="@rhyllow" class="w-full h-full object-cover"></a>
+    </div>
+    <p class="text-muted/50 text-[11px] mt-4" data-en="Live Instagram feed placeholder — connect via embed widget or API." data-es="Marcador de feed de Instagram — conectar mediante widget de embed o API.">Live Instagram feed placeholder — connect via embed widget or API.</p>
+    <!--
+      ┌──────────────────────────────────────────────────────────────┐
+      │  MAKE THIS FEED AUTO-UPDATE (no manual code edits needed):     │
+      │   1. Create a free widget at behold.so  OR  elfsight.com       │
+      │   2. Connect the @rhyllow Instagram account                    │
+      │   3. Paste their embed <script> here and replace the 4 .ph     │
+      │      placeholder <div>s above with their feed <div>.           │
+      │  Her newest posts then appear automatically on the site.       │
+      └──────────────────────────────────────────────────────────────┘
+    -->
+    <!-- Follow button now points to direct messages so scouts can reach out instantly -->
+    <div class="mt-6"><a href="https://ig.me/m/rhyllow" target="_blank" rel="noopener" class="inline-block bg-neon hover:bg-neon/80 text-ink text-[11px] tracking-[.2em] uppercase px-5 py-2.5 rounded-full transition" data-en="Message on Instagram" data-es="Escribir por Instagram">Message on Instagram</a></div>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section id="booking" class="max-w-6xl mx-auto px-5 sm:px-8 py-24 sm:py-32 grid lg:grid-cols-12 gap-14">
+  <div class="lg:col-span-5 reveal">
+    <p class="text-gold text-xs tracking-[.35em] uppercase mb-4" data-en="Booking" data-es="Contratación">Booking</p>
+    <h2 class="font-display text-4xl sm:text-6xl leading-tight mb-8" data-en="Let's build something unforgettable." data-es="Creemos algo inolvidable.">Let's build something unforgettable.</h2>
+    <p class="text-muted leading-relaxed mb-10" data-en="For casting directors, talent scouts, labels &amp; event producers. Share the brief and I'll respond with availability &amp; rates." data-es="Para directores de casting, cazatalentos, sellos y productores de eventos. Cuéntame el proyecto y responderé con disponibilidad y tarifas.">For casting directors, talent scouts, labels &amp; event producers. Share the brief and I'll respond with availability &amp; rates.</p>
+    <div class="space-y-4 text-sm">
+      <a href="mailto:booking@rhyllow.dance" class="flex items-center gap-3 text-stark hover:text-gold transition">
+        <span class="text-neon">✉</span> booking@rhyllow.dance
+      </a>
+      <a href="https://ig.me/m/rhyllow" target="_blank" rel="noopener" class="flex items-center gap-3 text-stark hover:text-gold transition">
+        <span class="text-neon">◎</span> <span data-en="Direct message @rhyllow" data-es="Mensaje directo @rhyllow">Direct message @rhyllow</span>
+      </a>
+      <a href="https://www.instagram.com/rhyllow" target="_blank" rel="noopener" class="flex items-center gap-3 text-muted hover:text-gold transition text-xs">
+        <span class="text-neon">↗</span> instagram.com/rhyllow
+      </a>
+      <p class="flex items-center gap-3 text-muted">
+        <span class="text-neon">⌖</span> <span data-en="Based in Madrid · available worldwide" data-es="Base en Madrid · disponible en todo el mundo">Based in Madrid · available worldwide</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="lg:col-span-7 reveal">
+    <form onsubmit="submitBooking(event)" class="bg-surface/50 border border-white/10 rounded-lg p-7 sm:p-9 space-y-5">
+      <div class="grid sm:grid-cols-2 gap-5">
+        <label class="block">
+          <span class="text-muted text-[11px] tracking-[.18em] uppercase" data-en="Full name" data-es="Nombre completo">Full name</span>
+          <input required type="text" class="mt-2 w-full bg-ink border border-white/10 rounded-md px-4 py-3 text-sm focus:border-neon focus:outline-none transition" placeholder="—">
+        </label>
+        <label class="block">
+          <span class="text-muted text-[11px] tracking-[.18em] uppercase" data-en="Company / Agency" data-es="Empresa / Agencia">Company / Agency</span>
+          <input type="text" class="mt-2 w-full bg-ink border border-white/10 rounded-md px-4 py-3 text-sm focus:border-neon focus:outline-none transition" placeholder="—">
+        </label>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <label class="block">
+          <span class="text-muted text-[11px] tracking-[.18em] uppercase" data-en="Project type" data-es="Tipo de proyecto">Project type</span>
+          <select class="mt-2 w-full bg-ink border border-white/10 rounded-md px-4 py-3 text-sm focus:border-neon focus:outline-none transition text-muted">
+            <option data-en="Music video" data-es="Videoclip">Music video</option>
+            <option data-en="Live event / show" data-es="Evento en directo / show">Live event / show</option>
+            <option data-en="Festival" data-es="Festival">Festival</option>
+            <option data-en="Brand / commercial" data-es="Marca / comercial">Brand / commercial</option>
+            <option data-en="Residency" data-es="Residencia">Residency</option>
+            <option data-en="Teaching / workshop" data-es="Clase / taller">Teaching / workshop</option>
+            <option data-en="Other" data-es="Otro">Other</option>
+          </select>
+        </label>
+        <label class="block">
+          <span class="text-muted text-[11px] tracking-[.18em] uppercase" data-en="Event location" data-es="Ubicación del evento">Event location</span>
+          <select class="mt-2 w-full bg-ink border border-white/10 rounded-md px-4 py-3 text-sm focus:border-neon focus:outline-none transition text-muted">
+            <option data-en="Spain" data-es="España">Spain</option>
+            <option data-en="Morocco" data-es="Marruecos">Morocco</option>
+            <option data-en="France" data-es="Francia">France</option>
+            <option data-en="Rest of Europe" data-es="Resto de Europa">Rest of Europe</option>
+            <option data-en="International" data-es="Internacional">International</option>
+          </select>
+        </label>
+      </div>
+      <label class="block">
+        <span class="text-muted text-[11px] tracking-[.18em] uppercase" data-en="Proposed date" data-es="Fecha propuesta">Proposed date</span>
+        <input type="date" class="mt-2 w-full bg-ink border border-white/10 rounded-md px-4 py-3 text-sm focus:border-neon focus:outline-none transition text-muted">
+      </label>
+      <label class="block">
+        <span class="text-muted text-[11px] tracking-[.18em] uppercase" data-en="Project brief" data-es="Descripción del proyecto">Project brief</span>
+        <textarea rows="4" class="mt-2 w-full bg-ink border border-white/10 rounded-md px-4 py-3 text-sm focus:border-neon focus:outline-none transition resize-none" placeholder="—"></textarea>
+      </label>
+      <button type="submit" class="w-full bg-neon hover:bg-neon/80 text-ink text-xs tracking-[.25em] uppercase py-4 rounded-md transition" data-en="Send booking request" data-es="Enviar solicitud">Send booking request</button>
+      <p id="formNote" class="text-gold text-xs text-center hidden" data-en="Thank you — opening your email client to send." data-es="Gracias — abriendo tu cliente de correo para enviar.">Thank you — opening your email client to send.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-white/5 py-12">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="font-display text-2xl">RHY<span class="text-neon">.</span></p>
+    <p class="text-muted/50 text-xs tracking-[.15em] uppercase">© 2026 Guadalupe Sánchez · Madrid</p>
+    <a href="mailto:booking@rhyllow.dance" class="text-muted hover:text-gold text-xs tracking-[.15em] uppercase transition">booking@rhyllow.dance</a>
+  </div>
+</footer>
+
+<!-- ============ REEL MODAL ============ -->
+<dialog id="reelModal" class="bg-transparent p-0 w-[92vw] max-w-4xl">
+  <div class="relative bg-surface border border-white/10 rounded-lg overflow-hidden">
+    <button onclick="document.getElementById('reelModal').close()" class="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-ink/80 hover:bg-neon hover:text-ink flex items-center justify-center transition">✕</button>
+    <video controls playsinline preload="metadata" poster="photos/reel-cover.jpg" src="videos/reel.mp4" class="w-full aspect-video object-cover bg-black"></video>
+  </div>
+</dialog>
+
+<script>
+  // ---------- language toggle ----------
+  let es = false;
+  function toggleLang(){
+    es = !es;
+    document.querySelectorAll('[data-en]').forEach(el=>{
+      const val = es ? el.getAttribute('data-es') : el.getAttribute('data-en');
+      if(val!==null) el.innerHTML = val;
+    });
+    document.documentElement.lang = es ? 'es' : 'en';
+    document.querySelectorAll('.lang').forEach(l=>l.textContent = es ? 'ES / EN' : 'EN / ES');
+  }
+
+  // ---------- scroll reveal (with safety fallback) ----------
+  const revealAll = ()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    // if anything goes wrong, force-show everything after load
+    window.addEventListener('load', ()=>setTimeout(revealAll, 1200));
+  } else { revealAll(); }
+
+  // ---------- booking form (opens mail client) ----------
+  function submitBooking(e){
+    e.preventDefault();
+    document.getElementById('formNote').classList.remove('hidden');
+    setTimeout(()=>{ window.location.href = 'mailto:booking@rhyllow.dance?subject=Booking%20request%20—%20RHY'; }, 700);
+  }
+</script>
+</body>
+</html>

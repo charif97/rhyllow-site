@@ -1,0 +1,13 @@
+# OS
+.DS_Store
+Thumbs.db
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+# Node (si un jour build)
+node_modules/
+# Brouillons / planches de travail
+*_sheet*.jpg
+*_preview.jpg
+*_order.txt
