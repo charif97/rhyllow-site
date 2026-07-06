@@ -1,8 +1,39 @@
 {
   "projects": [
     {
-      "id": "dar-soukkar",
+      "id": "studio-sessions",
       "order": 0,
+      "category": "studio",
+      "cat_en": "Studio · Movement",
+      "cat_es": "Estudio · Movimiento",
+      "title_en": "Studio Sessions",
+      "title_es": "Sesiones de estudio",
+      "role_en": "Dancer",
+      "role_es": "Bailarina",
+      "loc_en": "Studio · Madrid",
+      "loc_es": "Estudio · Madrid",
+      "year": "2024–25",
+      "disc_en": "Contemporary · Floorwork",
+      "disc_es": "Contemporáneo · Floorwork",
+      "desc_en": "Studio movement research — where the work is built before it ever reaches a stage. Floorwork, contemporary lines and the raw daily practice of a dancer, captured in black and white.",
+      "desc_es": "Investigación del movimiento en estudio — donde se construye el trabajo antes de llegar al escenario. Floorwork, líneas contemporáneas y la práctica diaria de una bailarina, capturadas en blanco y negro.",
+      "card_media": "photos/rhyllow_1746885581_3629460928068896635_1439203368.mp4",
+      "card_is_video": true,
+      "card_poster": "",
+      "card_w": 720,
+      "card_h": 1280,
+      "hero_media": "photos/rhyllow_1758641667_3728074815233101008_1439203368.mp4",
+      "hero_is_video": true,
+      "hero_poster": "",
+      "gallery": [
+        "photos/rhyllow_1665756501_2948900588308185303_1439203368.mp4",
+        "photos/rhyllow_1673121145_3010679843261982505_1439203368.mp4"
+      ],
+      "color": false
+    },
+    {
+      "id": "dar-soukkar",
+      "order": 1,
       "category": "stage",
       "cat_en": "Stage · Residency",
       "cat_es": "Escena · Residencia",
@@ -22,18 +53,18 @@
       "card_poster": "photos/dar-soukkar-poster.jpg",
       "card_w": 1200,
       "card_h": 1500,
-      "hero_media": "photos/rhyllow_1763385532_3767871383913996591_1439203368.mp4",
+      "hero_media": "photos/rhyllow_1750953383_3663584547589867442_1439203368.mp4",
       "hero_is_video": true,
       "hero_poster": "",
       "gallery": [
-        "/photos/rhyllow_1735223379_3531631176419930397_1439203368.mp4",
-        "/photos/rhyllow_1720883095_3411334630202520783_1439203368.mp4",
-        "/photos/rhyllow_1752234710_3674333524056749250_1439203368.jpg"
+        "photos/rhyllow_1735223379_3531631176419930397_1439203368.mp4",
+        "photos/rhyllow_1720883095_3411334630202520783_1439203368.mp4",
+        "photos/rhyllow_1763385532_3767871383913996591_1439203368.mp4"
       ]
     },
     {
       "id": "snor",
-      "order": 1,
+      "order": 2,
       "category": "screen",
       "cat_en": "Screen · Music Video",
       "cat_es": "Pantalla · Videoclip",
@@ -58,13 +89,13 @@
       "hero_poster": "photos/snor.jpg",
       "gallery": [
         "videos/snor.mp4",
-        "photos/snor-2.jpg",
+        "photos/rhyllow_1770574731_3828180428738365806_1439203368.mp4",
         "/photos/rhyllow_1746017560_3622175116885262739_1439203368.mp4"
       ]
     },
     {
       "id": "editorial-3",
-      "order": 2,
+      "order": 3,
       "category": "studio",
       "cat_en": "Studio · Editorial",
       "cat_es": "Estudio · Editorial",
@@ -77,8 +108,8 @@
       "year": "2024",
       "disc_en": "Contemporary · Elevation",
       "disc_es": "Contemporáneo · Elevación",
-      "desc_en": "A single suspended instant — full extension caught mid-air against a bare studio wall. Power, line and control distilled into one frame; the signature image of RHY's editorial work.",
-      "desc_es": "Un único instante suspendido — extensión total capturada en el aire contra una pared de estudio desnuda. Potencia, línea y control destilados en un solo fotograma; la imagen insignia del trabajo editorial de RHY.",
+      "desc_en": "A single suspended instant — full extension caught mid-air against a bare studio wall. Power, line and control distilled into one frame; the signature image of RHYLLOW's editorial work.",
+      "desc_es": "Un único instante suspendido — extensión total capturada en el aire contra una pared de estudio desnuda. Potencia, línea y control destilados en un solo fotograma; la imagen insignia del trabajo editorial de RHYLLOW.",
       "card_media": "photos/editorial-3.jpg",
       "card_is_video": false,
       "card_poster": "",
@@ -94,7 +125,7 @@
     },
     {
       "id": "casa-emma",
-      "order": 3,
+      "order": 4,
       "category": "stage",
       "cat_en": "Stage · Residency",
       "cat_es": "Escena · Residencia",
@@ -125,7 +156,7 @@
     },
     {
       "id": "shoko",
-      "order": 4,
+      "order": 5,
       "category": "stage",
       "cat_en": "Stage · Live venue",
       "cat_es": "Escena · Sala",
@@ -156,7 +187,7 @@
     },
     {
       "id": "editorial-1",
-      "order": 5,
+      "order": 6,
       "category": "studio",
       "cat_en": "Studio · Editorial",
       "cat_es": "Estudio · Editorial",
@@ -187,7 +218,7 @@
     },
     {
       "id": "nostalgia",
-      "order": 6,
+      "order": 7,
       "category": "stage",
       "cat_en": "Stage · Festival",
       "cat_es": "Escena · Festival",
@@ -218,7 +249,7 @@
     },
     {
       "id": "editorial-4",
-      "order": 7,
+      "order": 8,
       "category": "studio",
       "cat_en": "Studio · Editorial",
       "cat_es": "Estudio · Editorial",
@@ -244,38 +275,7 @@
       "gallery": [
         "photos/editorial-4.jpg",
         "photos/editorial-3.jpg",
-        "photos/editorial-2.jpg"
-      ]
-    },
-    {
-      "id": "cabalgata",
-      "order": 8,
-      "category": "stage",
-      "cat_en": "Stage · Parade",
-      "cat_es": "Escena · Cabalgata",
-      "title_en": "Cabalgata de Reyes",
-      "title_es": "Cabalgata de Reyes",
-      "role_en": "Parade performer",
-      "role_es": "Intérprete de cabalgata",
-      "loc_en": "Comunidad de Madrid",
-      "loc_es": "Comunidad de Madrid",
-      "year": "2025",
-      "disc_en": "Commercial · Stage",
-      "disc_es": "Comercial · Escena",
-      "desc_en": "Performing in the Three Kings Parade (Cabalgata de Reyes) for the Comunidad de Madrid — one of the city's largest public events, danced for tens of thousands along the route.",
-      "desc_es": "Actuación en la Cabalgata de Reyes para la Comunidad de Madrid — uno de los mayores eventos públicos de la ciudad, bailada para decenas de miles de personas a lo largo del recorrido.",
-      "card_media": "photos/cabalgata.jpg",
-      "card_is_video": false,
-      "card_poster": "",
-      "card_w": 1052,
-      "card_h": 1400,
-      "hero_media": "photos/cabalgata.jpg",
-      "hero_is_video": false,
-      "hero_poster": "",
-      "gallery": [
-        "photos/cabalgata.jpg",
-        "photos/shoko.jpg",
-        "photos/ig-d.jpg"
+        "photos/rhyllow_1779545856_3903435002665540058_1439203368.mp4"
       ]
     },
     {
@@ -305,8 +305,8 @@
       "hero_poster": "",
       "gallery": [
         "photos/editorial-2.jpg",
-        "photos/editorial-1.jpg",
-        "photos/ig-a.jpg"
+        "photos/rhyllow_1677006795_3043275694421214271_1439203368.mp4",
+        "photos/rhyllow_1673468488_3013594259254999025_1439203368.mp4"
       ]
     },
     {
@@ -326,18 +326,17 @@
       "disc_es": "Comercial · Pantalla",
       "desc_en": "Production work with Skipline Productions in Rabat's Quartier Hassan — dance built for the camera and the edit.",
       "desc_es": "Trabajo de producción con Skipline Productions en el Quartier Hassan de Rabat — danza pensada para la cámara y el montaje.",
-      "card_media": "photos/skipline.jpg",
-      "card_is_video": false,
+      "card_media": "photos/skiplineprod_1690224143_3154144084754699407_4530990012.mp4",
+      "card_is_video": true,
       "card_poster": "",
-      "card_w": 1101,
-      "card_h": 1400,
-      "hero_media": "photos/skipline.jpg",
-      "hero_is_video": false,
+      "card_w": 720,
+      "card_h": 1280,
+      "hero_media": "photos/skiplineprod_1690224143_3154144084754699407_4530990012.mp4",
+      "hero_is_video": true,
       "hero_poster": "",
       "gallery": [
-        "photos/skipline.jpg",
-        "photos/snor.jpg",
-        "photos/ig-c.jpg"
+        "photos/rhyllow_1694825952_3192753956797509344_1439203368.jpg",
+        "photos/rhyllow_1694825952_3192753956797359481_1439203368.jpg"
       ]
     }
   ]
