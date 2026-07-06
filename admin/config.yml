@@ -74,14 +74,12 @@ collections:
               - { name: "disc_es", label: "Discipline (ES)", widget: "string" }
               - { name: "desc_en", label: "Description (EN)", widget: "text" }
               - { name: "desc_es", label: "Description (ES)", widget: "text" }
-              - { name: "card_media", label: "Média de la vignette (galerie)", widget: "file" }
-              - { name: "card_is_video", label: "La vignette est une vidéo ?", widget: "boolean", default: false }
-              - { name: "card_poster", label: "Poster de la vidéo vignette (si vidéo)", widget: "file", required: false }
+              - { name: "card_media", label: "Média de la vignette (photo OU vidéo)", widget: "file", hint: "vidéo = détectée automatiquement, elle se lira toute seule" }
+              - { name: "card_poster", label: "Image d'aperçu si c'est une vidéo (optionnel)", widget: "file", required: false }
               - { name: "card_w", label: "Largeur px (proportions vignette)", widget: "number", value_type: "int", default: 1200 }
               - { name: "card_h", label: "Hauteur px (proportions vignette)", widget: "number", value_type: "int", default: 1500 }
-              - { name: "hero_media", label: "Média principal de la fiche", widget: "file" }
-              - { name: "hero_is_video", label: "Le média principal est une vidéo ?", widget: "boolean", default: false }
-              - { name: "hero_poster", label: "Poster du média principal (si vidéo)", widget: "file", required: false }
+              - { name: "hero_media", label: "Média principal de la fiche (photo OU vidéo)", widget: "file", hint: "vidéo = détectée automatiquement" }
+              - { name: "hero_poster", label: "Image d'aperçu si c'est une vidéo (optionnel)", widget: "file", required: false }
               - name: "gallery"
                 label: "Galerie de la fiche"
                 widget: "list"

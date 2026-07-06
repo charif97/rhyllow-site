@@ -391,6 +391,8 @@ const isMobile=()=>window.matchMedia("(max-width:768px),(hover:none)").matches;
 const byId=id=>document.getElementById(id);
 const norm=p=>(p||"").replace(/^\//,"");
 const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+const VIDRE=/\.(mp4|webm|mov|m4v)$/i;
+const isVid=(p,flag)=> !!flag || VIDRE.test(p||"");
 
 /* ================= BUILD internal structures from flat data ================= */
 function build(arr){
@@ -399,9 +401,9 @@ function build(arr){
   arr.forEach(j=>{
     PROJECTS[j.id]={order:j.order,color:!!j.color,cat:{en:j.cat_en,es:j.cat_es},title:{en:j.title_en,es:j.title_es},
       role:{en:j.role_en,es:j.role_es},loc:{en:j.loc_en,es:j.loc_es},year:j.year,disc:{en:j.disc_en,es:j.disc_es},
-      hero:j.hero_is_video?{video:norm(j.hero_media),poster:norm(j.hero_poster)}:{img:norm(j.hero_media)},
+      hero:isVid(j.hero_media,j.hero_is_video)?{video:norm(j.hero_media),poster:norm(j.hero_poster)}:{img:norm(j.hero_media)},
       desc:{en:j.desc_en,es:j.desc_es},gallery:(j.gallery||[]).map(norm)};
-    PHOTOS.push(j.card_is_video
+    PHOTOS.push(isVid(j.card_media,j.card_is_video)
       ?{type:"video",file:norm(j.card_media),poster:norm(j.card_poster),w:j.card_w,h:j.card_h,cat:j.category,project:j.id,color:!!j.color}
       :{file:norm(j.card_media),w:j.card_w,h:j.card_h,cat:j.category,project:j.id,color:!!j.color});
   });
