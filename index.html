@@ -93,6 +93,8 @@ header{position:fixed;top:0;inset-inline:0;z-index:120;display:flex;align-items:
 .media img,.media video{width:100%;height:100%;object-fit:cover;display:block;
   filter:grayscale(1) contrast(1.05);transition:filter .7s ease,transform 1.1s cubic-bezier(.22,1,.36,1);transform:scale(1.04)}
 .card:hover .media img,.card:hover .media video,.shot:hover .media img,.shot:hover .media video{filter:grayscale(0) contrast(1.03);transform:scale(1.06)}
+.card.color .media img,.card.color .media video,.shot.color .media img,.shot.color .media video{filter:none}
+#project.color .pjhero img,#project.color .pjhero video,#project.color .pjgallery .g img,#project.color .pjgallery .g video{filter:none}
 .vtag{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;
   color:#fff;background:rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.25);padding:3px 7px;border-radius:999px;z-index:2}
 .cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;
@@ -395,13 +397,13 @@ function build(arr){
   arr=arr.slice().sort((a,b)=>a.order-b.order);
   PROJECTS={}; PHOTOS=[];
   arr.forEach(j=>{
-    PROJECTS[j.id]={order:j.order,cat:{en:j.cat_en,es:j.cat_es},title:{en:j.title_en,es:j.title_es},
+    PROJECTS[j.id]={order:j.order,color:!!j.color,cat:{en:j.cat_en,es:j.cat_es},title:{en:j.title_en,es:j.title_es},
       role:{en:j.role_en,es:j.role_es},loc:{en:j.loc_en,es:j.loc_es},year:j.year,disc:{en:j.disc_en,es:j.disc_es},
       hero:j.hero_is_video?{video:norm(j.hero_media),poster:norm(j.hero_poster)}:{img:norm(j.hero_media)},
       desc:{en:j.desc_en,es:j.desc_es},gallery:(j.gallery||[]).map(norm)};
     PHOTOS.push(j.card_is_video
-      ?{type:"video",file:norm(j.card_media),poster:norm(j.card_poster),w:j.card_w,h:j.card_h,cat:j.category,project:j.id}
-      :{file:norm(j.card_media),w:j.card_w,h:j.card_h,cat:j.category,project:j.id});
+      ?{type:"video",file:norm(j.card_media),poster:norm(j.card_poster),w:j.card_w,h:j.card_h,cat:j.category,project:j.id,color:!!j.color}
+      :{file:norm(j.card_media),w:j.card_w,h:j.card_h,cat:j.category,project:j.id,color:!!j.color});
   });
   PJ_ORDER=Object.keys(PROJECTS).sort((a,b)=>PROJECTS[a].order-PROJECTS[b].order);
 }
@@ -468,14 +470,14 @@ function renderGallery(){
   if(useGrid){
     host.className="grid"; host.style.height="auto";
     host.innerHTML=list.map(p=>
-      `<div class="shot" data-cursor="View" onclick="go('${p.project}')" style="aspect-ratio:${p.w}/${p.h}">${mediaHTML(p)}${capHTML(p)}</div>`).join("");
+      `<div class="shot${p.color?' color':''}" data-cursor="View" onclick="go('${p.project}')" style="aspect-ratio:${p.w}/${p.h}">${mediaHTML(p)}${capHTML(p)}</div>`).join("");
   }else{
     host.className="scatter";
     const W=host.clientWidth;
     const {placed,height}=buildLayout(list,W,7);
     host.style.height=height+"px";
     host.innerHTML=placed.map(p=>
-      `<div class="card" data-cursor="View" onclick="go('${p.project}')" style="left:${p.x}px;top:${p.y}px;width:${p.width}px;height:${p.height}px">${mediaHTML(p)}${capHTML(p)}</div>`).join("");
+      `<div class="card${p.color?' color':''}" data-cursor="View" onclick="go('${p.project}')" style="left:${p.x}px;top:${p.y}px;width:${p.width}px;height:${p.height}px">${mediaHTML(p)}${capHTML(p)}</div>`).join("");
   }
   bindCursor();
 }
@@ -519,6 +521,7 @@ function galItem(src){
 }
 function renderProject(id){
   const p=PROJECTS[id]; if(!p)return; currentProject=id;
+  byId("project").classList.toggle("color", !!p.color);
   byId("pjhero-media").innerHTML=heroMedia(p.hero);
   byId("pjtag").textContent=L(p.cat);
   byId("pjtitle").textContent=L(p.title);
