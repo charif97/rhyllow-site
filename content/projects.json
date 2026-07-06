@@ -22,8 +22,8 @@
       "card_poster": "photos/dar-soukkar-poster.jpg",
       "card_w": 1200,
       "card_h": 1500,
-      "hero_media": "/photos/casa-emma.jpg",
-      "hero_is_video": false,
+      "hero_media": "photos/rhyllow_1763385532_3767871383913996591_1439203368.mp4",
+      "hero_is_video": true,
       "hero_poster": "",
       "gallery": [
         "/photos/rhyllow_1735223379_3531631176419930397_1439203368.mp4",
@@ -114,8 +114,8 @@
       "card_poster": "photos/casa-emma-poster.jpg",
       "card_w": 1200,
       "card_h": 2134,
-      "hero_media": "photos/casa-emma.jpg",
-      "hero_is_video": false,
+      "hero_media": "photos/rhyllow_1701890041_3252011622930560526_1439203368.mp4",
+      "hero_is_video": true,
       "hero_poster": "",
       "gallery": [
         "photos/casa-emma.jpg",
